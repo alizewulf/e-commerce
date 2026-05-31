@@ -1,5 +1,5 @@
 import type { StateProps } from "../../../../App";
-import ArrowSVG from "../../../../ui/icons/arrow";
+import ArrowSVG from "../../../../ui/icons/Arrow";
 import { languages } from "../../../../utils/languages";
 import { useEffect } from "react";
 

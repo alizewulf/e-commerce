@@ -1,9 +1,10 @@
 import { translations } from "../../../../utils/translations"
-import LoupeSVG from '../../../../ui/icons/loupe'
-import HeartSVG from "../../../../ui/icons/heart";
+import LoupeSVG from '../../../../ui/icons/Loupe'
+import HeartSVG from "../../../../ui/icons/Heart";
 import type { StateProps } from "../../../../App";
 import { useState } from "react";
-import CartSVG from "../../../../ui/icons/cart";
+import CartSVG from "../../../../ui/icons/Cart";
+import { NavLink } from "react-router-dom";
 
 function Nav({state}:StateProps) {
     const t = translations[state.lang as keyof typeof translations];
@@ -12,15 +13,28 @@ function Nav({state}:StateProps) {
     function changeLoupe() {
         setLoupeState(prev => !prev)
     }
+    const navItems = [
+        { key: "homePage", path:"/"},
+        { key: "contactPage", path:"/contact"},
+        { key: "about", path:"/about"},
+        { key: "signup", path:"/signup"},
+    ];
 
     return (
         <nav className="flex border-b-1 border-border/30 px-33.75 pb-4 justify-between items-center">
             <h1 className="text-black font-bold tracking-[3%] leading-6">Exclusive</h1>
             <div className="flex gap-12 text-base font-poppins leading-6">
-                <button className="cursor-pointer">{t.homePage}</button>
-                <button className="cursor-pointer">{t.contactPage}</button>
-                <button className="cursor-pointer">{t.about}</button>
-                <button className="cursor-pointer">{t.signup}</button>
+            {navItems.map(item => (
+                <NavLink
+                key={item.key}
+                to={item.path}
+                className={({ isActive }) =>
+                    `cursor-pointer ${isActive ? "border-b-2 border-black" : ""}`
+                }
+                >
+                {t[item.key as keyof typeof t]}
+                </NavLink>
+            ))}
             </div>
             <div className="flex gap-7.5">
                 <div className="relative">
