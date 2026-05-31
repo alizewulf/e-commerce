@@ -1,6 +1,6 @@
-import type { StateProps } from "../../../App";
-import ArrowSVG from "../../../ui/icons/arrow";
-import { languages } from "../../../utils/languages";
+import type { StateProps } from "../../../../App";
+import ArrowSVG from "../../../../ui/icons/arrow";
+import { languages } from "../../../../utils/languages";
 import { useEffect } from "react";
 
 interface Props extends StateProps {

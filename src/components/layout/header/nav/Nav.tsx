@@ -1,0 +1,39 @@
+import { translations } from "../../../../utils/translations"
+import LoupeSVG from '../../../../ui/icons/loupe'
+import HeartSVG from "../../../../ui/icons/heart";
+import type { StateProps } from "../../../../App";
+import { useState } from "react";
+import CartSVG from "../../../../ui/icons/cart";
+
+function Nav({state}:StateProps) {
+    const t = translations[state.lang as keyof typeof translations];
+    const [loupeState, setLoupeState] = useState<boolean>(false) // is hidden?
+
+    function changeLoupe() {
+        setLoupeState(prev => !prev)
+    }
+
+    return (
+        <nav className="flex border-b-1 border-border/30 px-33.75 pb-4 justify-between items-center">
+            <h1 className="text-black font-bold tracking-[3%] leading-6">Exclusive</h1>
+            <div className="flex gap-12 text-base font-poppins leading-6">
+                <button className="cursor-pointer">{t.homePage}</button>
+                <button className="cursor-pointer">{t.contactPage}</button>
+                <button className="cursor-pointer">{t.about}</button>
+                <button className="cursor-pointer">{t.signup}</button>
+            </div>
+            <div className="flex gap-7.5">
+                <div className="relative">
+                <input type="text" placeholder={t.searchInput} onBlur={() => changeLoupe()} onFocus={() => changeLoupe()} className="bg-secondary py-2.5 px-5"/>
+                {loupeState === false? <LoupeSVG className="absolute right-6.25 top-3.25" color="transparent"/> : ""}
+                </div>
+                <div className="flex gap-4">
+                    <button className="cursor-pointer"><HeartSVG color="transparent"/></button>
+                    <button className="cursor-pointer"><CartSVG/></button>
+                </div>
+            </div>
+        </nav>
+    )
+}
+
+export default Nav
