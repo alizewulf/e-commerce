@@ -36,21 +36,19 @@ function Dropdown({dropdown, setDropdown, setState, state }:Props) {
       
       {dropdown === "language" && (
         <div className="absolute left-[40%] -translate-x-1/2 top-9.25 bg-black">
-          <ul className="flex flex-col gap-2 font-poppins text-sm p-6">
+          <ul className="flex flex-col gap-3 font-poppins text-sm">
             {languages.map((language) => (
-              <li
-                key={language.code}
-                onClick={() => {
-                  setState((prev) => ({
-                    ...prev,
-                    lang: language.code
-                  }))
-                  localStorage.setItem("lang", language.code);
-
-                  setDropdown(null);
-                }}
-              >
-                {language.label}
+              <li key={language.code}>
+                  <button className="cursor-pointer p-3" onClick={() => {
+                    setState((prev) => ({
+                      ...prev,
+                      lang: language.code
+                    }))
+                    localStorage.setItem("lang", language.code)
+                    setDropdown(null)
+                  }}>
+                    {language.label}
+                  </button>
               </li>
             ))}
           </ul>
