@@ -1,14 +1,9 @@
-import type { StateProps } from "../../../../interfaces/interface";
 import ArrowSVG from "../../../../ui/icons/Arrow";
 import { languages } from "../../../../utils/languages";
 import { useEffect } from "react";
+import type { Props } from "../../../../interfaces/interface";
 
-interface Props extends StateProps {
-  dropdown: "language" | "profile" | null;
-  setDropdown: React.Dispatch<
-    React.SetStateAction<"language" | "profile" | null>
-  >;
-}
+
 
 function Dropdown({dropdown, setDropdown, setState, state }:Props) {
   useEffect(() => {

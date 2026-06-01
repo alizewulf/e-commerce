@@ -3,8 +3,7 @@ import Dropdown from "./dropdowns/LanguageDropdown"
 import type { StateProps } from "../../../interfaces/interface"
 import { translations } from "../../../utils/translations";
 import Nav from "./nav/Nav";
-
-type DropdownType = "language" | "profile" | null;
+import type { DropdownType } from "../../../interfaces/interface";
 
 function Header({state, setState}:StateProps) {
     const t = translations[state.lang as keyof typeof translations];
@@ -15,7 +14,7 @@ function Header({state, setState}:StateProps) {
                 <p className="font-poppins text-sm leading-5.25 mx-auto">{t.sale}<span className="cursor-pointer font-semibold ml-2 underline">{t.shop}</span></p>
                 <Dropdown state={state}  setState={setState} dropdown={dropdown} setDropdown={setDropdown}/>
             </div>
-            <Nav state={state} setState={setState}/>
+            <Nav state={state} setState={setState} dropdown={dropdown} setDropdown={setDropdown}/>
         </header>
     )
 }

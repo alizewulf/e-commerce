@@ -1,15 +1,16 @@
 import { translations } from "../../../../utils/translations"
 import LoupeSVG from '../../../../ui/icons/Loupe'
 import HeartSVG from "../../../../ui/icons/Heart";
-import type { StateProps } from "../../../../interfaces/interface";
+import type { Props } from "../../../../interfaces/interface";
 import { useState } from "react";
 import CartSVG from "../../../../ui/icons/Cart";
 import { NavLink } from "react-router-dom";
 import UserDropdown from "../dropdowns/UserDropdown";
 
-function Nav({state}:StateProps) {
+
+function Nav({state, dropdown, setDropdown, setState}:Props) {
     const t = translations[state.lang as keyof typeof translations];
-    const [loupeState, setLoupeState] = useState<boolean>(false) // is hidden?
+    const [loupeState, setLoupeState] = useState<boolean>(false)
 
     function changeLoupe() {
         setLoupeState(prev => !prev)
@@ -22,7 +23,7 @@ function Nav({state}:StateProps) {
     ];
 
     return (
-        <nav className="flex border-b-1 border-border/30 px-33.75 pb-4 justify-between items-center">
+        <nav className="flex border-b border-border/30 px-33.75 pb-4 justify-between items-center">
             <h1 className="text-black font-bold tracking-[3%] leading-6">Exclusive</h1>
             <div className="flex gap-12 text-base font-poppins leading-6">
             {navItems.map(item => (
@@ -46,7 +47,7 @@ function Nav({state}:StateProps) {
                     <button className="cursor-pointer"><HeartSVG color="transparent"/></button>
                     <button className="cursor-pointer"><CartSVG/></button>
                     {state.isAuth && (
-                        <UserDropdown/>
+                        <UserDropdown state={state}  setState={setState} dropdown={dropdown} setDropdown={setDropdown}/>
                     )}
                 </div>
             </div>
