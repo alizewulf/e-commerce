@@ -5,21 +5,14 @@ import HomePage from "./pages/Home";
 import ContactPage from "./pages/Contact";
 import AboutPage from "./pages/About";
 import SignUpPage from "./pages/Signup";
-
-export interface State {
-  lang: string;
-}
-
-export interface StateProps {
-  state: State;
-  setState: React.Dispatch<React.SetStateAction<State>>;
-}
+import type { State } from "./interfaces/interface";
 
 function App() {
   const [state, setState] = useState<State>({
-    lang: "en",
+    lang: localStorage.getItem("lang") || "en",
+    isAuth: true,
   });
-
+  
   return (
     <BrowserRouter>
       <Header state={state} setState={setState} />

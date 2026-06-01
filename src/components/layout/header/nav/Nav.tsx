@@ -1,10 +1,11 @@
 import { translations } from "../../../../utils/translations"
 import LoupeSVG from '../../../../ui/icons/Loupe'
 import HeartSVG from "../../../../ui/icons/Heart";
-import type { StateProps } from "../../../../App";
+import type { StateProps } from "../../../../interfaces/interface";
 import { useState } from "react";
 import CartSVG from "../../../../ui/icons/Cart";
 import { NavLink } from "react-router-dom";
+import UserDropdown from "../dropdowns/UserDropdown";
 
 function Nav({state}:StateProps) {
     const t = translations[state.lang as keyof typeof translations];
@@ -44,6 +45,9 @@ function Nav({state}:StateProps) {
                 <div className="flex gap-4">
                     <button className="cursor-pointer"><HeartSVG color="transparent"/></button>
                     <button className="cursor-pointer"><CartSVG/></button>
+                    {state.isAuth && (
+                        <UserDropdown/>
+                    )}
                 </div>
             </div>
         </nav>
