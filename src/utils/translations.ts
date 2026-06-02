@@ -38,6 +38,8 @@ export const translations = {
 
     downloadApp: "Download App",
     appDiscount: "Save $3 with App New User Only",
+    pageNotFound: "The page you are looking for was not found. You can return to the home page.",
+    error404: "404 Not Found",
   },
 
   ru: {
@@ -79,6 +81,8 @@ export const translations = {
 
     downloadApp: "Скачать приложение",
     appDiscount: "Сэкономьте $3. Только для новых пользователей",
+    pageNotFound: "Страница не найдена. Вы можете вернуться на главную страницу.",
+    error404: "404 Страница не найдена",
   },
 
   pl: {
@@ -120,6 +124,8 @@ export const translations = {
 
     downloadApp: "Pobierz aplikację",
     appDiscount: "Oszczędź 3$. Tylko dla nowych użytkowników",
+    pageNotFound: "Nie znaleziono strony. Możesz wrócić na stronę główną.",
+    error404: "404 Nie znaleziono strony",
   },
 
   de: {
@@ -161,6 +167,8 @@ export const translations = {
 
     downloadApp: "App herunterladen",
     appDiscount: "Spare 3 $. Nur für neue Benutzer",
+    pageNotFound: "Seite nicht gefunden. Du kannst zur Startseite zurückkehren.",
+    error404: "404 Seite nicht gefunden",
   },
 
   ge: {
@@ -202,5 +210,7 @@ export const translations = {
 
     downloadApp: "აპლიკაციის ჩამოტვირთვა",
     appDiscount: "დაზოგე $3. მხოლოდ ახალი მომხმარებლებისთვის",
+    pageNotFound: "გვერდი ვერ მოიძებნა. შეგიძლიათ მთავარ გვერდზე დაბრუნდეთ.",
+    error404: "404 გვერდი ვერ მოიძებნა",
   },
 } as const;

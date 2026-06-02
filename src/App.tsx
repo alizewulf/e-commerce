@@ -7,6 +7,7 @@ import AboutPage from "./pages/About";
 import SignUpPage from "./pages/Signup";
 import type { State } from "./interfaces/interface";
 import Footer from "./components/layout/footer";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   const [state, setState] = useState<State>({
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
+        <Route path="*" element={<NotFoundPage state={state} setState={setState}/>}/>
       </Routes>
 
       <Footer state={state} setState={setState}/>
