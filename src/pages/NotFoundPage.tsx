@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import type { StateProps } from "../interfaces/interface";
 import { translations } from "../utils/translations";
+import PrimaryButton from "../ui/button/ButtonPrimary";
 
 function NotFoundPage({ state }: StateProps) {
   const t = translations[state.lang as keyof typeof translations];
@@ -15,9 +16,7 @@ function NotFoundPage({ state }: StateProps) {
         </h2>
         <p>{t.pageNotFound}</p>
         <NavLink to={"/"}>
-          <button className="mt-10 text-white cursor-pointer font-poppins text-base leading-6 bg-button-2 hover:bg-hover-button py-4 px-12">
-            Back to home page
-          </button>
+          <PrimaryButton children="Back to home page"/>
         </NavLink>
       </div>
     </>
