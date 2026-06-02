@@ -7,7 +7,7 @@ import DropdownUserIcon from "../../../../ui/icons/DropdownUserIcon";
 import { translations } from "../../../../utils/translations";
 import UserIconSVG from "../../../../ui/icons/UserIcon";
 
-function UserDropdown({ dropdown, setDropdown, state }: Props) {
+function UserDropdown({ dropdown, setDropdown, state, setState }: Props) {
     const SVGStyle = "w-6 h-6"
     const t = translations[state.lang as keyof typeof translations];
     const translate = [{
@@ -34,9 +34,20 @@ function UserDropdown({ dropdown, setDropdown, state }: Props) {
       id: "logout",
       label: t.logout,
       svg: <LogoutSVG color="transparent" className={SVGStyle} />,
+      click: logOut
     }
   ]
+  
+   function logOut():void {
+  localStorage.removeItem("user");
 
+  setState(prev => ({
+    ...prev,
+    isAuth: false,
+    user: null,
+  }));
+   }
+    
     return (
     <div className="relative">
       <button
@@ -53,7 +64,7 @@ function UserDropdown({ dropdown, setDropdown, state }: Props) {
         <div className="absolute w-56.25 top-13 right-3.75 bg-black/65 backdrop-blur-xs rounded-sm text-white">
           <ul className="text-sm justify-start pb-2.5 pt-4.5 pl-5 flex gap-3 flex-col font-poppins">
             {translate.map(lang => (
-              <li className="flex gap-2.5 leading-5.25 items-center cursor-pointer w-max h-max" key={lang.id}>
+              <li onClick={lang.click} className="flex gap-2.5 leading-5.25 items-center cursor-pointer w-max h-max" key={lang.id}>
                   {lang.svg} {lang.label}
               </li>
             ))}

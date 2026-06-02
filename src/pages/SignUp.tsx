@@ -1,35 +1,76 @@
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import PrimaryButton from "../base/button/ButtonPrimary";
-import GoogleAuthButton from "../base/button/GoogleAuth";
 import AuthInput from "../base/input/Input";
 import AuthLayout from "../components/layout/auth/Auth";
+import { AUTH_API } from "../services/AuthAPI";
 import type { StateProps } from "../interfaces/interface";
 import { translations } from "../utils/translations";
 
-function SignUpPage({state}:StateProps) {
-    const t = translations[state.lang as keyof typeof translations];
-  
+function SignUpPage({ state }: StateProps) {
+  const t = translations[state.lang as keyof typeof translations];
+  const navigate = useNavigate();
+
+ const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
+ const handleRegister = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!username || !email || !password) {
+    setError("Fill all fields");
+    return;
+  }
+
+  const newUser = {
+    username,
+    email,
+    password,
+    isAdmin: false,
+    id: Date.now().toString(),
+  };
+
+  await AUTH_API.register(newUser);
+
+  navigate("/login");
+};
   return (
-    <AuthLayout h2={t.signupTitle} p={t.signupTitle}>
-      <AuthInput type="text" placeholder={t.namePlaceholder} required={true}/>
-      <AuthInput type="email" placeholder={t.emailPlaceholder} required={true}/>
-      <AuthInput type="password" placeholder={t.passwordPlaceholder} required={true}/>
-      <NavLink to={"/login"}>
-        <PrimaryButton className="w-full">
-          {t.createAccountButton}
-        </PrimaryButton>
-      </NavLink>
-      <GoogleAuthButton children={t.signUpWithGoogle}/>
-      <div className="flex flex-row gap-4 items-center justify-center">
-        <span className="text-black/40 font-base font-poppins leading-6">
-          {t.alreadyHaveAccount}
-        </span>
-        <NavLink to={"/login"}>
-          <button className="font-base font-poppins leading-6 underline cursor-pointer">
-            {t.loginLink}
-          </button>
-        </NavLink>
+    <AuthLayout h2={t.signupTitle} p={t.signupSubtitle}>
+      <form className="flex flex-col gap-10" onSubmit={handleRegister}>
+      <AuthInput
+        type="text"
+        placeholder={t.namePlaceholder}
+        value={username}
+        onChange={setUsername}
+      />
+
+      <AuthInput
+        type="email"
+        placeholder={t.emailPlaceholder}
+        value={email}
+        onChange={setEmail}
+      />
+
+      <AuthInput
+        type="password"
+        placeholder={t.passwordPlaceholder}
+        value={password}
+        onChange={setPassword}
+      />
+
+      {error && <p>{error}</p>}
+    <div className="flex flex-col gap-8.5">
+      <PrimaryButton type="submit">
+        {t.createAccountButton}
+      </PrimaryButton>
+      <div className="flex w-full items-center justify-around">
+      <span>{t.alreadyHaveAccount}</span>
+      <NavLink to="/login"><button className="underline cursor-pointer">{t.loginButton}</button></NavLink>
       </div>
+    </div>
+    </form>
     </AuthLayout>
   );
 }

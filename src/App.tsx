@@ -10,12 +10,18 @@ import Footer from "./components/layout/footer";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/Login";
 
+
 function App() {
-  const [state, setState] = useState<State>({
+const [state, setState] = useState<State>(() => {
+  const savedUser = localStorage.getItem("user");
+
+  return {
     lang: localStorage.getItem("lang") || "en",
-    isAuth: false,
-  });
-  
+    isAuth: !!savedUser,
+    user: savedUser ? JSON.parse(savedUser) : null,
+  };
+});
+
   return (
     <BrowserRouter>
       <Header state={state} setState={setState} />

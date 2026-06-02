@@ -1,7 +1,8 @@
-export interface State {
+export type State = {
   lang: string;
-  isAuth: boolean,
-}
+  isAuth: boolean;
+  user: User | null;
+};
 
 export interface StateProps {
   state: State;
@@ -20,4 +21,12 @@ export interface Props extends StateProps {
   setDropdown: React.Dispatch<
     React.SetStateAction<"language" | "profile" | null>
   >;
+}
+
+export interface User {
+  id: string;
+  username: string;
+  email: string;
+  password: string;
+  isAdmin: boolean;
 }

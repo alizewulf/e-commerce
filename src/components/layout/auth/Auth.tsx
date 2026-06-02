@@ -14,7 +14,7 @@ function AuthLayout({children, h2, p}:AuthLayoutProps) {
             <div className="flex flex-col gap-6 mt-31.25">
                 <h2 className="font-inter text-4xl leading-7.5 tracking-[4%]">{h2}</h2>
                 <p className="font-poppins text-base leading-6">{p}</p>
-                <div className="flex flex-col gap-10">
+                <div>
                     {children}
                 </div>
             </div>
