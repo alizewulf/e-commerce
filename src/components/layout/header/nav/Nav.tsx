@@ -24,7 +24,9 @@ function Nav({state, dropdown, setDropdown, setState}:Props) {
 
     return (
         <nav className="flex border-b border-border/30 px-33.75 pb-4 justify-between items-center">
-            <h1 className="text-black font-bold tracking-[3%] leading-6">Exclusive</h1>
+            <NavLink to="/">
+                <h1 className="text-black font-bold tracking-[3%] leading-6">Exclusive</h1>
+            </NavLink>
             <div className="flex gap-12 text-base font-poppins leading-6">
             {navItems.map(item => (
                 <NavLink

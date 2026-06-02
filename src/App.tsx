@@ -13,7 +13,7 @@ import LoginPage from "./pages/Login";
 function App() {
   const [state, setState] = useState<State>({
     lang: localStorage.getItem("lang") || "en",
-    isAuth: true,
+    isAuth: false,
   });
   
   return (
@@ -24,8 +24,8 @@ function App() {
         <Route path="/" element={<HomePage/>}/>
         <Route path="/contact" element={<ContactPage/>}/>
         <Route path="/about" element={<AboutPage/>}/>
-        <Route path="/signup" element={<SignUpPage/>}/>
-        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/signup" element={<SignUpPage state={state} setState={setState}/>}/>
+        <Route path="/login" element={<LoginPage state={state} setState={setState}/>}/>
         <Route path="*" element={<NotFoundPage state={state} setState={setState}/>}/>
       </Routes>
 

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import type { StateProps } from "../interfaces/interface";
 import { translations } from "../utils/translations";
-import PrimaryButton from "../ui/button/ButtonPrimary";
+import PrimaryButton from "../base/button/ButtonPrimary";
 
 function NotFoundPage({ state }: StateProps) {
   const t = translations[state.lang as keyof typeof translations];

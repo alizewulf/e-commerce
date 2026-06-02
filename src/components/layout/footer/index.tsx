@@ -11,6 +11,7 @@ import InstagramSVG from "../../../assets/icon-instagram.svg";
 import LinkedInSVG from "../../../assets/Icon-Linkedin.svg";
 import TwitterSVG from "../../../assets/Icon-Twitter.svg";
 import FacebookSVG from "../../../assets/Icon-Facebook.svg";
+import { NavLink } from "react-router-dom";
 
 function Footer({ state }: StateProps) {
   const t = translations[state.lang as keyof typeof translations];
@@ -30,7 +31,13 @@ function Footer({ state }: StateProps) {
     },
     {
       title: t.account,
-      items: [t.myAccount, t.loginRegister, t.cart, t.wishlist, t.shop],
+      items: [
+        {label: t.myAccount, to:"/*"},
+        {label: t.loginRegister, to:"/signup"}, 
+        {label: t.cart, to:"/*"}, 
+        {label: t.wishlist, to:"/*"}, 
+        {label: t.shop, to:"/*"}
+      ],
     },
     {
       title: t.quickLink,
@@ -52,7 +59,7 @@ function Footer({ state }: StateProps) {
             <span>{t.subscribe}</span>
           </div>
 
-          <div className="flex flex-col gap-4 w-[210px]">
+          <div className="flex flex-col gap-4 w-52.5">
             <span>{t.firstOrderDiscount}</span>
 
             <div className="relative">
@@ -78,11 +85,24 @@ function Footer({ state }: StateProps) {
           <div className="flex flex-col gap-6" key={section.title}>
             <h3 className={h3Style}>{section.title}</h3>
 
+            {section.title === t.account ? (
             <ul className={subHelp}>
-              {section.items.map((item, i) => (
-                <li key={i}>{item}</li>
-              ))}
+                        {section.items.map((item, i) => (
+              <li key={i}>
+                <NavLink to={item.to} className="hover:underline">
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
             </ul>
+            )
+            :
+              <ul className={subHelp}> 
+              {section.items.map((item, i) => ( 
+                <li key={i}>{item}</li> 
+              ))} 
+              </ul>
+            }
           </div>
         ))}
 

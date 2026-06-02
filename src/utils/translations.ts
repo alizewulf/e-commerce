@@ -40,6 +40,21 @@ export const translations = {
     appDiscount: "Save $3 with App New User Only",
     pageNotFound: "The page you are looking for was not found. You can return to the home page.",
     error404: "404 Not Found",
+    
+    loginTitle: "Log in to Exclusive",
+    loginSubtitle: "Enter your details below",
+    emailPlaceholder: "Email or Phone Number",
+    passwordPlaceholder: "Password",
+    loginButton: "Log In",
+    forgotPassword: "Forget Password?",
+
+    signupTitle: "Create an account",
+    signupSubtitle: "Enter your details below",
+    namePlaceholder: "Name",
+    alreadyHaveAccount: "Already have account?",
+    loginLink: "Log in",
+    createAccountButton: "Create Account",
+    signUpWithGoogle: "Sign up with Google",
   },
 
   ru: {
@@ -83,6 +98,21 @@ export const translations = {
     appDiscount: "Сэкономьте $3. Только для новых пользователей",
     pageNotFound: "Страница не найдена. Вы можете вернуться на главную страницу.",
     error404: "404 Страница не найдена",
+
+    loginTitle: "Войти в Exclusive",
+    loginSubtitle: "Введите свои данные ниже",
+    emailPlaceholder: "Email или номер телефона",
+    passwordPlaceholder: "Пароль",
+    loginButton: "Войти",
+    forgotPassword: "Забыли пароль?",
+
+    signupTitle: "Создать аккаунт",
+    signupSubtitle: "Введите свои данные ниже",
+    namePlaceholder: "Имя",
+    alreadyHaveAccount: "Уже есть аккаунт?",
+    loginLink: "Войти",
+    createAccountButton: "Создать аккаунт",
+    signUpWithGoogle: "Регистрация через Google",
   },
 
   pl: {
@@ -126,6 +156,21 @@ export const translations = {
     appDiscount: "Oszczędź 3$. Tylko dla nowych użytkowników",
     pageNotFound: "Nie znaleziono strony. Możesz wrócić na stronę główną.",
     error404: "404 Nie znaleziono strony",
+
+    loginTitle: "Zaloguj się do Exclusive",
+    loginSubtitle: "Wprowadź swoje dane poniżej",
+    emailPlaceholder: "E-mail lub numer telefonu",
+    passwordPlaceholder: "Hasło",
+    loginButton: "Zaloguj się",
+    forgotPassword: "Zapomniałeś hasła?",
+
+    signupTitle: "Stwórz konto",
+    signupSubtitle: "Wprowadź swoje dane poniżej",
+    namePlaceholder: "Imię",
+    alreadyHaveAccount: "Masz już konto?",
+    loginLink: "Zaloguj się",
+    createAccountButton: "Stwórz konto",
+    signUpWithGoogle: "Zarejestruj się przez Google",
   },
 
   de: {
@@ -169,6 +214,21 @@ export const translations = {
     appDiscount: "Spare 3 $. Nur für neue Benutzer",
     pageNotFound: "Seite nicht gefunden. Du kannst zur Startseite zurückkehren.",
     error404: "404 Seite nicht gefunden",
+
+    loginTitle: "Bei Exclusive anmelden",
+    loginSubtitle: "Gib unten deine Daten ein",
+    emailPlaceholder: "E-Mail oder Telefonnummer",
+    passwordPlaceholder: "Passwort",
+    loginButton: "Anmelden",
+    forgotPassword: "Passwort vergessen?",
+
+    signupTitle: "Konto erstellen",
+    signupSubtitle: "Gib unten deine Daten ein",
+    namePlaceholder: "Name",
+    alreadyHaveAccount: "Hast du bereits ein Konto?",
+    loginLink: "Anmelden",
+    createAccountButton: "Konto erstellen",
+    signUpWithGoogle: "Mit Google registrieren",
   },
 
   ge: {
@@ -212,5 +272,20 @@ export const translations = {
     appDiscount: "დაზოგე $3. მხოლოდ ახალი მომხმარებლებისთვის",
     pageNotFound: "გვერდი ვერ მოიძებნა. შეგიძლიათ მთავარ გვერდზე დაბრუნდეთ.",
     error404: "404 გვერდი ვერ მოიძებნა",
+
+    loginTitle: "შესვლა Exclusive-ში",
+    loginSubtitle: "შეიყვანეთ თქვენი მონაცემები ქვემოთ",
+    emailPlaceholder: "ელფოსტა ან ტელეფონის ნომერი",
+    passwordPlaceholder: "პაროლი",
+    loginButton: "შესვლა",
+    forgotPassword: "დაგავიწყდათ პაროლი?",
+
+    signupTitle: "ანგარიშის შექმნა",
+    signupSubtitle: "შეიყვანეთ თქვენი მონაცემები ქვემოთ",
+    namePlaceholder: "სახელი",
+    alreadyHaveAccount: "უკვე გაქვთ ანგარიში?",
+    loginLink: "შესვლა",
+    createAccountButton: "ანგარიშის შექმნა",
+    signUpWithGoogle: "Google-ით რეგისტრაცია",
   },
 } as const;
