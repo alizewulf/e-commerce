@@ -9,10 +9,12 @@ export interface StateProps {
   setState: React.Dispatch<React.SetStateAction<State>>;
 }
 
-export type PropsSVG = {
-    className?: string,
-    color?:string
-}
+export type PropsSVG = Partial<{
+    className: string,
+    color:string
+    color2: string,
+    stroke: string
+}>
 
 export type DropdownType = "language" | "profile" | null;
 

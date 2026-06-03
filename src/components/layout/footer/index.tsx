@@ -8,11 +8,10 @@ import { NavLink } from "react-router-dom";
 import QRIMG from "/Qrcode1.png";
 import AppStoreImg from "/download-appstore.png";
 import PlayStoreIMG from "/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png";
-
-import InstagramSVG from "../../../assets/icon-instagram.svg";
-import LinkedInSVG from "../../../assets/Icon-Linkedin.svg";
-import TwitterSVG from "../../../assets/Icon-Twitter.svg";
 import FacebookSVG from "../../../assets/Icon-Facebook.svg";
+import LinkedInSVG from "../../../ui/icons/LinkedIn";
+import TwitterSVG from "../../../ui/icons/Twitter";
+import InstagramSVG from "../../../ui/icons/Instagram";
 
 type FooterLinkItem = {
   label: string;
@@ -33,7 +32,6 @@ type FooterSection =
 
 function Footer({ state }: StateProps) {
   const t = translationsFooter[state.lang as keyof typeof translationsFooter];
-
   const [showIcon, setShowIcon] = useState(false);
 
   const footerSections: FooterSection[] = [
@@ -64,8 +62,6 @@ function Footer({ state }: StateProps) {
       ],
     },
   ];
-
-  const mediaIcons = [FacebookSVG, TwitterSVG, InstagramSVG, LinkedInSVG];
 
   const h3Style = "text-xl font-poppins leading-7";
   const ulStyle = "flex flex-col gap-4 max-w-52";
@@ -129,10 +125,11 @@ function Footer({ state }: StateProps) {
             </div>
           </div>
 
-          <div className="flex gap-6">
-            {mediaIcons.map((icon, i) => (
-              <img key={i} src={icon} alt="social icon" />
-            ))}
+          <div className="flex gap-6 items-center">
+            <img src={FacebookSVG} alt="facebook icon"/>
+            <TwitterSVG color="white"/>
+            <InstagramSVG color="white" color2="black" stroke="white"/>
+            <LinkedInSVG/>
           </div>
         </div>
       </section>
