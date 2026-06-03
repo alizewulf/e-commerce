@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
 import type { StateProps } from "../interfaces/interface";
-import { translations } from "../utils/translations";
 import PrimaryButton from "../base/button/ButtonPrimary";
+import { pageNotFoundTranslations } from "../utils/translations/pageNotFound";
 
 function NotFoundPage({ state }: StateProps) {
-  const t = translations[state.lang as keyof typeof translations];
+  const t = pageNotFoundTranslations[state.lang as keyof typeof pageNotFoundTranslations];
   return (
     <>
       <p className="text-sm font-poppins text-black/50 mt-20 ml-33.75">

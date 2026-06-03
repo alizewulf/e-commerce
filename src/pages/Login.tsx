@@ -2,13 +2,13 @@ import AuthLayout from "../components/layout/auth/Auth";
 import PrimaryButton from "../base/button/ButtonPrimary";
 import AuthInput from "../base/input/Input";
 import type { StateProps } from "../interfaces/interface";
-import { translations } from "../utils/translations";
 import { useState } from "react";
 import { AUTH_API } from "../services/AuthAPI";
 import { useNavigate } from "react-router-dom";
+import { loginTranslations } from "../utils/translations/loginPage";
 
 function LoginPage({ state, setState }: StateProps) {
-  const t = translations[state.lang as keyof typeof translations];
+  const t = loginTranslations[state.lang as keyof typeof loginTranslations];
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);

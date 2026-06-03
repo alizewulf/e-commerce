@@ -5,10 +5,9 @@ import AuthInput from "../base/input/Input";
 import AuthLayout from "../components/layout/auth/Auth";
 import { AUTH_API } from "../services/AuthAPI";
 import type { StateProps } from "../interfaces/interface";
-import { translations } from "../utils/translations";
-
+import { registerTranslation } from "../utils/translations/registerPage";
 function SignUpPage({ state }: StateProps) {
-  const t = translations[state.lang as keyof typeof translations];
+  const t = registerTranslation[state.lang as keyof typeof registerTranslation];
   const navigate = useNavigate();
 
  const [username, setUsername] = useState("");
@@ -67,7 +66,7 @@ function SignUpPage({ state }: StateProps) {
       </PrimaryButton>
       <div className="flex w-full items-center justify-around">
       <span>{t.alreadyHaveAccount}</span>
-      <NavLink to="/login"><button className="underline cursor-pointer">{t.loginButton}</button></NavLink>
+      <NavLink to="/login"><button className="underline cursor-pointer">{t.loginLink}</button></NavLink>
       </div>
     </div>
     </form>

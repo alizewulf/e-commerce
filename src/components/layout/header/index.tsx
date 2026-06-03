@@ -1,12 +1,12 @@
 import { useState } from "react"
 import Dropdown from "./dropdowns/LanguageDropdown"
 import type { StateProps } from "../../../interfaces/interface"
-import { translations } from "../../../utils/translations";
+import { headerTranslations } from "../../../utils/translations/header";
 import Nav from "./nav/Nav";
 import type { DropdownType } from "../../../interfaces/interface";
 
 function Header({state, setState}:StateProps) {
-    const t = translations[state.lang as keyof typeof translations];
+    const t = headerTranslations[state.lang as keyof typeof headerTranslations];
     const [dropdown, setDropdown] = useState<DropdownType>(null);
     return (
         <header className="flex flex-col gap-10">

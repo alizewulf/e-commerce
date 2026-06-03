@@ -1,7 +1,9 @@
-import { translations } from "../../../utils/translations";
+import { translationsFooter } from "../../../utils/translations/footer";
 import type { StateProps } from "../../../interfaces/interface";
+
 import SendEmailSVG from "../../../ui/icons/SendEmail";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import QRIMG from "/Qrcode1.png";
 import AppStoreImg from "/download-appstore.png";
@@ -11,131 +13,132 @@ import InstagramSVG from "../../../assets/icon-instagram.svg";
 import LinkedInSVG from "../../../assets/Icon-Linkedin.svg";
 import TwitterSVG from "../../../assets/Icon-Twitter.svg";
 import FacebookSVG from "../../../assets/Icon-Facebook.svg";
-import { NavLink } from "react-router-dom";
+
+type FooterLinkItem = {
+  label: string;
+  to: string;
+};
+
+type FooterSection =
+  | {
+      title: string;
+      items: string[];
+      type: "text";
+    }
+  | {
+      title: string;
+      items: FooterLinkItem[];
+      type: "links";
+    };
 
 function Footer({ state }: StateProps) {
-  const t = translations[state.lang as keyof typeof translations];
+  const t = translationsFooter[state.lang as keyof typeof translationsFooter];
 
-  const [SVGState, setSVGState] = useState<boolean>(false);
+  const [showIcon, setShowIcon] = useState(false);
 
-  function changeSVG() {
-    setSVGState(prev => !prev);
-  }
-
-  const mediaIcons = [FacebookSVG, TwitterSVG, InstagramSVG, LinkedInSVG];
-
-  const footerSections = [
+  const footerSections: FooterSection[] = [
     {
-      title: t.support,
-      items: [t.address, t.email, t.phone],
+      title: t.support.title,
+      type: "text",
+      items: [t.support.address, t.support.email, t.support.phone],
     },
     {
-      title: t.account,
+      title: t.account.title,
+      type: "links",
       items: [
-        {label: t.myAccount, to:"/*"},
-        {label: t.loginRegister, to:"/signup"}, 
-        {label: t.cart, to:"/*"}, 
-        {label: t.wishlist, to:"/*"}, 
-        {label: t.shop, to:"/*"}
+        { label: t.account.myAccount, to: "/myaccount" },
+        { label: t.account.loginRegister, to: "/signup" },
+        { label: t.account.cart, to: "/cart" },
+        { label: t.account.wishlist, to: "/wishlist" },
+        { label: t.shop.title, to:"/shop"}
       ],
     },
     {
-      title: t.quickLink,
-      items: [t.privacyPolicy, t.termsOfUse, t.faq, t.contact],
+      title: t.quickLinks.title,
+      type: "text",
+      items: [
+        t.quickLinks.privacyPolicy,
+        t.quickLinks.termsOfUse,
+        t.quickLinks.faq,
+        t.quickLinks.contact,
+      ],
     },
   ];
 
+  const mediaIcons = [FacebookSVG, TwitterSVG, InstagramSVG, LinkedInSVG];
+
   const h3Style = "text-xl font-poppins leading-7";
-  const subHelp = "w-43.5 flex flex-col text-base gap-4";
+  const ulStyle = "flex flex-col gap-4 max-w-52";
 
   return (
     <footer className="mt-35 bg-black flex flex-col text-white">
       <section className="flex justify-around pt-20">
-        <div className="flex flex-col">
-          <div className="flex flex-col gap-6">
-            <span className="text-2xl font-bold leading-6 tracking-[3%]">
-              {t.exclusive}
-            </span>
-            <span>{t.subscribe}</span>
-          </div>
+        <div className="flex flex-col gap-6">
+          <span className="text-2xl font-bold">{t.brand.exclusive}</span>
+          <span>{t.brand.subscribe}</span>
 
           <div className="flex flex-col gap-4 w-52.5">
-            <span>{t.firstOrderDiscount}</span>
+            <span>{t.brand.firstOrderDiscount}</span>
 
             <div className="relative">
               <input
                 type="email"
-                onBlur={changeSVG}
-                onFocus={changeSVG}
-                placeholder={t.enterEmail}
-                className="placeholder:rounded-sm outline-2 py-3 w-52.5 h-12 outline-white font-poppins text-base placeholder:text-text/40"
+                onBlur={() => setShowIcon(false)}
+                onFocus={() => setShowIcon(true)}
+                placeholder={t.brand.enterEmail}
+                className="outline-2 py-3 w-52.5 h-12 outline-white text-base placeholder:text-white/40"
               />
 
-              {!SVGState && (
-                <SendEmailSVG
-                  color="none"
-                  className="absolute right-4.25 top-1/2 -translate-y-1/2"
-                />
+              {!showIcon && (
+                <SendEmailSVG className="absolute right-4 top-1/2 -translate-y-1/2" />
               )}
             </div>
           </div>
         </div>
 
-        {footerSections.map(section => (
-          <div className="flex flex-col gap-6" key={section.title}>
+        {footerSections.map((section, index) => (
+          <div key={index} className="flex flex-col gap-6">
             <h3 className={h3Style}>{section.title}</h3>
 
-            {section.title === t.account ? (
-            <ul className={subHelp}>
-                        {section.items.map((item, i) => (
-              <li key={i}>
-                <NavLink to={item.to} className="hover:underline">
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
+            <ul className={ulStyle}>
+              {section.type === "links"
+                ? section.items.map((item, i) => (
+                    <li key={i}>
+                      <NavLink to={item.to} className="hover:underline">
+                        {item.label}
+                      </NavLink>
+                    </li>
+                  ))
+                : section.items.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
             </ul>
-            )
-            :
-              <ul className={subHelp}> 
-              {section.items.map((item, i) => ( 
-                <li key={i}>{item}</li> 
-              ))} 
-              </ul>
-            }
           </div>
         ))}
 
-        <div className="flex flex-col gap-6">
-          <h3 className={h3Style}>Download App</h3>
-
-          <span>{t.appDiscount}</span>
+        <div className="flex flex-col gap-6 max-w-60">
+          <h3 className={h3Style}>{t.app.downloadApp}</h3>
+          <span>{t.app.appDiscount}</span>
 
           <div className="flex gap-2.5">
-            <img src={QRIMG} className="cursor-pointer" alt="QR Image" />
+            <img src={QRIMG} alt="QR" />
 
             <div className="flex flex-col gap-1.5">
-              <img
-                src={PlayStoreIMG}
-                className="cursor-pointer"
-                alt="Playstore Image"
-              />
-              <img src={AppStoreImg} alt="AppStore Image" className="cursor-pointer" />
+              <img src={PlayStoreIMG} alt="Play Store" />
+              <img src={AppStoreImg} alt="App Store" />
             </div>
           </div>
 
           <div className="flex gap-6">
             {mediaIcons.map((icon, i) => (
-              <button key={i} className="cursor-pointer">
-                <img src={icon} alt="Social Media Icon" />
-              </button>
+              <img key={i} src={icon} alt="social icon" />
             ))}
           </div>
         </div>
       </section>
 
-      <div className="flex border-t-white/40 pt-4 pb-6 border-t justify-center items-end h-full mt-15">
-        <p className="text-white/20 text-base font-poppins leading-6">
+      <div className="border-t border-white/20 mt-15 py-4 flex justify-center">
+        <p className="text-white/20 text-base">
           © Copyright Rimel 2022. All right reserved
         </p>
       </div>

@@ -1,4 +1,4 @@
-import { translations } from "../../../../utils/translations";
+import { headerTranslations } from "../../../../utils/translations/header";
 import LoupeSVG from "../../../../ui/icons/Loupe";
 import HeartSVG from "../../../../ui/icons/Heart";
 import type { Props } from "../../../../interfaces/interface";
@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 import UserDropdown from "../dropdowns/UserDropdown";
 
 function Nav({ state, dropdown, setDropdown, setState }: Props) {
-  const t = translations[state.lang as keyof typeof translations];
+  const t = headerTranslations[state.lang as keyof typeof headerTranslations];
   const [loupeState, setLoupeState] = useState<boolean>(false);
 
   function changeLoupe() {

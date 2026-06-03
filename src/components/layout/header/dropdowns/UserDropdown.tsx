@@ -4,12 +4,12 @@ import LogoutSVG from "../../../../ui/icons/Logout";
 import OrdersSVG from "../../../../ui/icons/Orders";
 import StarSVG from "../../../../ui/icons/Star";
 import DropdownUserIcon from "../../../../ui/icons/DropdownUserIcon";
-import { translations } from "../../../../utils/translations";
+import { dropdownTranslations } from "../../../../utils/translations/userDropdown";
 import UserIconSVG from "../../../../ui/icons/UserIcon";
 
 function UserDropdown({ dropdown, setDropdown, state, setState }: Props) {
     const SVGStyle = "w-6 h-6"
-    const t = translations[state.lang as keyof typeof translations];
+    const t = dropdownTranslations[state.lang as keyof typeof dropdownTranslations];
     const translate = [{
       id: "manageAccount",
       label: t.manageAccount,
