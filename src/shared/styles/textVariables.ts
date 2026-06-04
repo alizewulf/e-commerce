@@ -31,4 +31,3 @@ export const HEADING_TEXT_STYLES = {
     /** 110px / 115px */
     max: "text-heading font-inter leading-28.75 tracking-[3%]"
 } as const
-

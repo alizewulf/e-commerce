@@ -5,16 +5,64 @@ import type { Props } from "../../../../interfaces/interface";
 import { useState } from "react";
 import CartSVG from "../../../../ui/icons/Cart";
 import { NavLink } from "react-router-dom";
-import UserDropdown from "../dropdowns/UserDropdown";
+import Dropdown from "../../../../ui/dropdown/Dropdown";
+import DropdownUserIcon from "../../../../ui/icons/DropdownUserIcon";
+import UserIconSVG from "../../../../ui/icons/UserIcon";
+import CancelSVG from "../../../../ui/icons/Cancellations";
+import LogoutSVG from "../../../../ui/icons/Logout";
+import OrdersSVG from "../../../../ui/icons/Orders";
+import StarSVG from "../../../../ui/icons/Star";
+import { dropdownTranslations } from "../../../../utils/translations/userDropdown";
 import { TITLE_TEXT_STYLES } from "../../../../shared/styles/textVariables";
 
 function Nav({ state, dropdown, setDropdown, setState }: Props) {
   const t = headerTranslations[state.lang as keyof typeof headerTranslations];
+  const tDropdown = dropdownTranslations[state.lang as keyof typeof dropdownTranslations];
   const [loupeState, setLoupeState] = useState<boolean>(false);
 
   function changeLoupe() {
     setLoupeState((prev) => !prev);
   }
+
+  function logOut(): void {
+    localStorage.removeItem("user");
+    if (!setState) return;
+    setState((prev) => ({
+      ...prev,
+      isAuth: false,
+      user: null,
+    }));
+  }
+
+  const userDropdownItems = [
+    {
+      id: "manageAccount",
+      label: tDropdown.manageAccount,
+      icon: <DropdownUserIcon color="transparent" />,
+    },
+    {
+      id: "myOrder",
+      label: tDropdown.myOrder,
+      icon: <OrdersSVG color="transparent" className="w-6 h-6" />,
+    },
+    {
+      id: "myCancellations",
+      label: tDropdown.myCancellations,
+      icon: <CancelSVG color="transparent" className="w-6 h-6" />,
+    },
+    {
+      id: "myReviews",
+      label: tDropdown.myReviews,
+      icon: <StarSVG color="transparent" className="w-6 h-6" />,
+    },
+    {
+      id: "logout",
+      label: tDropdown.logout,
+      icon: <LogoutSVG color="transparent" className="w-6 h-6" />,
+      onClick: logOut,
+    },
+  ];
+
   const navItems = [
     { key: "homePage", path: "/" },
     { key: "contactPage", path: "/contact" },
@@ -85,11 +133,18 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
             <CartSVG />
           </button>
           {state.isAuth && (
-            <UserDropdown
-              state={state}
-              setState={setState}
+            <Dropdown
               dropdown={dropdown}
               setDropdown={setDropdown}
+              trigger={
+                <button className="cursor-pointer rounded-[47px] py-2 px-2.5 active:bg-secondary-2 hover:bg-hover-button">
+                  <UserIconSVG color="white" />
+                </button>
+              }
+              items={userDropdownItems}
+              name="profile"
+              className="relative"
+              panelClassName="top-[50px] right-0"
             />
           )}
         </div>

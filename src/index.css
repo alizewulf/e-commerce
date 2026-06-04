@@ -16,4 +16,10 @@
     --font-poppins: "Poppins", sans-serif;
     --text-heading: 110px;
     --font-inter: "Inter", sans-serif;
-}
+    @keyframes showDropdown {
+    from { opacity: 0 };
+    to { opacity: 100}
+    };
+    --animate-show-dropdown: showDropdown 0.5s ease-in-out
+};
+

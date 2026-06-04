@@ -4,8 +4,6 @@ import { useEffect } from "react";
 import type { Props } from "../../../../interfaces/interface";
 import { TITLE_TEXT_STYLES } from "../../../../shared/styles/textVariables";
 
-
-
 function Dropdown({dropdown, setDropdown, setState, state }:Props) {
   useEffect(() => {
   const handleClick = () => {
@@ -39,7 +37,7 @@ function Dropdown({dropdown, setDropdown, setState, state }:Props) {
       
       {dropdown === "language" && (
         <div className="absolute left-[40%] -translate-x-1/2 top-9.25 bg-black">
-          <ul className={`flex flex-col gap-3 ${TITLE_TEXT_STYLES.sm}`}>
+          <ul className={`flex items-center flex-col gap-3 ${TITLE_TEXT_STYLES.sm}`}>
             {languages.map((language) => (
               <li key={language.code}>
                   <button className="cursor-pointer p-3" onClick={() => {
