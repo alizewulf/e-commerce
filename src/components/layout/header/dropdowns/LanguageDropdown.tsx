@@ -2,6 +2,7 @@ import ArrowSVG from "../../../../ui/icons/Arrow";
 import { languages } from "../../../../utils/languages";
 import { useEffect } from "react";
 import type { Props } from "../../../../interfaces/interface";
+import { TITLE_TEXT_STYLES } from "../../../../shared/styles/textVariables";
 
 
 
@@ -17,9 +18,11 @@ function Dropdown({dropdown, setDropdown, setState, state }:Props) {
     document.removeEventListener("click", handleClick);
   };
 }, [setDropdown]);
-
+  if (!setState) {
+    return 
+  }
   return (
-    <div className="flex cursor-pointer relative gap-3 text-sm font-poppins items-center">
+    <div className={`flex cursor-pointer relative gap-3 ${TITLE_TEXT_STYLES.sm}items-center`}>
       <button
           onClick={(e) => {
             e.stopPropagation();
@@ -36,7 +39,7 @@ function Dropdown({dropdown, setDropdown, setState, state }:Props) {
       
       {dropdown === "language" && (
         <div className="absolute left-[40%] -translate-x-1/2 top-9.25 bg-black">
-          <ul className="flex flex-col gap-3 font-poppins text-sm">
+          <ul className={`flex flex-col gap-3 ${TITLE_TEXT_STYLES.sm}`}>
             {languages.map((language) => (
               <li key={language.code}>
                   <button className="cursor-pointer p-3" onClick={() => {

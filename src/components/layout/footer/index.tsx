@@ -12,6 +12,7 @@ import FacebookSVG from "../../../assets/Icon-Facebook.svg";
 import LinkedInSVG from "../../../ui/icons/LinkedIn";
 import TwitterSVG from "../../../ui/icons/Twitter";
 import InstagramSVG from "../../../ui/icons/Instagram";
+import { TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";
 
 type FooterLinkItem = {
   label: string;
@@ -63,7 +64,6 @@ function Footer({ state }: StateProps) {
     },
   ];
 
-  const h3Style = "text-xl font-poppins leading-7";
   const ulStyle = "flex flex-col gap-4 max-w-52";
 
   return (
@@ -94,7 +94,7 @@ function Footer({ state }: StateProps) {
 
         {footerSections.map((section, index) => (
           <div key={index} className="flex flex-col gap-6">
-            <h3 className={h3Style}>{section.title}</h3>
+            <h3 className={TITLE_TEXT_STYLES.xl}>{section.title}</h3>
 
             <ul className={ulStyle}>
               {section.type === "links"
@@ -113,7 +113,7 @@ function Footer({ state }: StateProps) {
         ))}
 
         <div className="flex flex-col gap-6 max-w-60">
-          <h3 className={h3Style}>{t.app.downloadApp}</h3>
+          <h3 className={TITLE_TEXT_STYLES.xl}>{t.app.downloadApp}</h3>
           <span>{t.app.appDiscount}</span>
 
           <div className="flex gap-2.5">
@@ -135,7 +135,7 @@ function Footer({ state }: StateProps) {
       </section>
 
       <div className="border-t border-white/20 mt-15 py-4 flex justify-center">
-        <p className="text-white/20 text-base">
+        <p className={`text-white/20 ${TITLE_TEXT_STYLES.md}`}>
           © Copyright Rimel 2022. All right reserved
         </p>
       </div>

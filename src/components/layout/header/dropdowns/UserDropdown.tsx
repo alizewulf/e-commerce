@@ -40,7 +40,9 @@ function UserDropdown({ dropdown, setDropdown, state, setState }: Props) {
   
    function logOut():void {
   localStorage.removeItem("user");
-
+  if (!setState) {
+    return
+  }
   setState(prev => ({
     ...prev,
     isAuth: false,

@@ -6,7 +6,7 @@ export type State = {
 
 export interface StateProps {
   state: State;
-  setState: React.Dispatch<React.SetStateAction<State>>;
+  setState?: React.Dispatch<React.SetStateAction<State>>;
 }
 
 export type PropsSVG = Partial<{

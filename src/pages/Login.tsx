@@ -6,6 +6,7 @@ import { useState } from "react";
 import { AUTH_API } from "../services/AuthAPI";
 import { useNavigate } from "react-router-dom";
 import { loginTranslations } from "../utils/translations/loginPage";
+import { TITLE_TEXT_STYLES } from "../shared/styles/textVariables";
 
 function LoginPage({ state, setState }: StateProps) {
   const t = loginTranslations[state.lang as keyof typeof loginTranslations];
@@ -22,7 +23,9 @@ function LoginPage({ state, setState }: StateProps) {
       setError("Wrong email or password");
       return;
     }
-
+    if (!setState) {
+      return
+    }
     setState(prev => ({
         ...prev,
         isAuth: true,
@@ -56,7 +59,7 @@ function LoginPage({ state, setState }: StateProps) {
     
         <button
           disabled
-          className="font-poppins text-base leading-6 my-auto text-secondary-2"
+          className={`${TITLE_TEXT_STYLES.md} my-auto text-secondary-2`}
         >
           {t.forgotPassword}
         </button>

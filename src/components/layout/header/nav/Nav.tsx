@@ -6,6 +6,7 @@ import { useState } from "react";
 import CartSVG from "../../../../ui/icons/Cart";
 import { NavLink } from "react-router-dom";
 import UserDropdown from "../dropdowns/UserDropdown";
+import { TITLE_TEXT_STYLES } from "../../../../shared/styles/textVariables";
 
 function Nav({ state, dropdown, setDropdown, setState }: Props) {
   const t = headerTranslations[state.lang as keyof typeof headerTranslations];
@@ -28,7 +29,7 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
           Exclusive
         </h1>
       </NavLink>
-      <div className="flex gap-12 text-base font-poppins leading-6">
+      <div className={`flex gap-12 ${TITLE_TEXT_STYLES.md}`}>
         {state.isAuth &&
           navItems.map((item) =>
             item.key === "signup" ? (

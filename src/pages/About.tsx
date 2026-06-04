@@ -4,11 +4,21 @@ import SaleSVG from "../ui/icons/SaleIcon";
 import ShoppingSVG from "../ui/icons/ShoppingIcon";
 import StoreSVG from "../ui/icons/StoreIcon";
 import HeroIMG from "/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png";
-import Staff1 from "/Frame 874.png"
-import Staff2 from "/Frame 875.png"
-import Staff3 from "/Frame 876.png"
+import Staff1 from "/Frame 874.png";
+import Staff2 from "/Frame 875.png";
+import Staff3 from "/Frame 876.png";
 import StaffCard from "../ui/cards/StaffMembers";
-function AboutPage() {
+import { aboutPageTranslation } from "../utils/translations/aboutPage";
+import type { StateProps } from "../interfaces/interface";
+import DeliverySVG from "../ui/icons/DeliveryIcon";
+import HeadphonesSVG from "../ui/icons/Headphones";
+import SecureSVG from "../ui/icons/Secure";
+import { HEADING_TEXT_STYLES} from "../shared/styles/textVariables";
+
+
+function AboutPage({ state }: StateProps) {
+  const t =
+    aboutPageTranslation[state.lang as keyof typeof aboutPageTranslation];
   return (
     <section className="mt-20 flex gap-35 flex-col">
       <div className="px-33.75 flex font-poppins">
@@ -19,22 +29,12 @@ function AboutPage() {
 
       <div className="flex justify-around">
         <div className="mt-30  text-black flex flex-col">
-          <h1 className="font-inter text-[54px] font-semibold leading-13.5 tracking-[6%]">
-            Our Story
+          <h1 className={`${HEADING_TEXT_STYLES.xxl} font-semibold `}>
+            {t.ourStory}
           </h1>
           <div className="flex flex-col gap-6 mt-10 font-poppins w-131.25">
-            <p>
-              Launced in 2015, Exclusive is South Asia’s premier online shopping
-              makterplace with an active presense in Bangladesh. Supported by
-              wide range of tailored marketing, data and service solutions,
-              Exclusive has 10,500 sallers and 300 brands and serves 3 millioons
-              customers across the region.{" "}
-            </p>
-            <p>
-              Exclusive has more than 1 Million products to offer, growing at a
-              very fast. Exclusive offers a diverse assotment in categories
-              ranging from consumer.
-            </p>
+            <p>{t.launchText}</p>
+            <p>{t.offerText}</p>
           </div>
         </div>
         <div className="mt-10.50">
@@ -43,32 +43,63 @@ function AboutPage() {
       </div>
 
       <div className="flex justify-around">
-        <Card amount="10.5k" text="Sallers active our site">
-          <StoreSVG />
-        </Card>
-        <Card
-          text="Mopnthly Produduct Sale"
-          amount="33k"
-          bgColor="bg-white"
-          textColor="white"
-          containerColor="bg-secondary-2"
-        >
-          <SaleSVG color="transparent" />
-        </Card>
-        <Card amount="45.5k" text="Customer active in our site">
-          <ShoppingSVG />
-        </Card>
-        <Card amount="25k" text="Anual gross sale in our site">
-          <MoneyBagSVG />
-        </Card>
+
+          <Card variant="primary" headingText="10.5k" titleText={t.sellersActiveSite}>
+            <StoreSVG/>
+          </Card>
+
+          <Card variant="secondary" headingText="33k" svgContainer="bg-white" titleText={t.monthlyProductSale}>
+            <SaleSVG/>
+          </Card>
+
+          <Card variant="primary" headingText="45.5k" titleText={t.customersActiveSite}>
+            <ShoppingSVG/>
+          </Card>
+
+          <Card variant="primary" headingText="25k" titleText={t.annualGrossSale}>
+            <MoneyBagSVG/>
+          </Card>
+          
       </div>
 
-      <div className="flex justify-around">
-        <StaffCard memberName="Tom Cruise" memberPosition="Founder & Chairman" staffImg={Staff1}/>
-        <StaffCard memberName="Emma Watson" memberPosition="Managing Director" staffImg={Staff2}/>
-        <StaffCard memberName="Will Smith" memberPosition="Founder & Chairman" staffImg={Staff3}/>
-
+      <div className="flex flex-col gap-10">
+        <div className="flex justify-around">
+          <StaffCard
+            memberName="Tom Cruise"
+            memberPosition={t.founderChairman}
+            staffImg={Staff1}
+          />
+          <StaffCard
+            memberName="Emma Watson"
+            memberPosition={t.managingDirector}
+            staffImg={Staff2}
+          />
+          <StaffCard
+            memberName="Will Smith"
+            memberPosition={t.productDesigner}
+            staffImg={Staff3}
+          />
+        </div>
+        <div className="flex justify-center gap-3">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span
+              className="bg-red-900 w-3 h-3 rounded-full"
+              key={i}
+            ></span>
+          ))}
+        </div>
       </div>
+    <div className="flex justify-around">
+          <Card variant="none" headingText={t.features.freeAndFastDelivery} titleText={t.features.freeAndFastDelivery}>
+            <DeliverySVG/>
+          </Card>
+          <Card variant="none" headingText={t.customersActiveSite} titleText={t.features.supportNote}>
+            <HeadphonesSVG/>
+          </Card>
+          <Card variant="none" headingText={t.features.moneyBackGuarantee} titleText={t.features.refundNote}>
+            <SecureSVG/>
+          </Card>
+    </div>
     </section>
   );
 }

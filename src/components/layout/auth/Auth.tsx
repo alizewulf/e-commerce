@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import SideImage from '/Side Image.png'
+import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from '../../../shared/styles/textVariables'
 
 type AuthLayoutProps = {
     children: ReactNode,
@@ -12,8 +13,8 @@ function AuthLayout({children, h2, p}:AuthLayoutProps) {
         <div className="justify-around flex gap-32.5 mt-15">
             <img src={SideImage} alt="Side Image"/>
             <div className="flex flex-col gap-6 mt-31.25">
-                <h2 className="font-inter text-4xl leading-7.5 tracking-[4%]">{h2}</h2>
-                <p className="font-poppins text-base leading-6">{p}</p>
+                <h2 className={HEADING_TEXT_STYLES.md}>{h2}</h2>
+                <p className={TITLE_TEXT_STYLES.md}>{p}</p>
                 <div>
                     {children}
                 </div>

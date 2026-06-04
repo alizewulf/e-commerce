@@ -1,27 +1,49 @@
 import type { ReactNode } from "react"
-type CardProps = {
-    children: ReactNode,
-    amount: string,
-    text: string
-    textColor?: string,
-    bgColor?: string,
-    borderColor?: string,
-    containerColor?: string,
-}
-const childrenStyle:string = "bg-black p-4 rounded-full outline-15 outline-black/20"
+import { TITLE_TEXT_STYLES, HEADING_TEXT_STYLES } from "../../shared/styles/textVariables"
 
-function Card({children="place SVG to children", containerColor, bgColor="bg-black", textColor="black", amount="Amount is empty", borderColor="black", text="text props is empty"}:CardProps) {
-    return (
-        <div className={` flex flex-col items-center ${containerColor} gap-5 justify-center py-7.5 px-12.5 rounded-sm border border-${borderColor}/30`}>
-          <div className={`${childrenStyle} ${bgColor}`}>
-            {children}
-          </div>
-          <div className={`flex flex-col gap-2 items-center text-${textColor}`}>
-            <span className="font-bold font-inter leading-7.5 tracking-[4px] text-3xl">{amount}</span>
-            <span className="text-base font-poppins leading-6">{text}</span>
-          </div>
-        </div>
-    )
+type CardVariants = "primary" | "secondary" | "none"
+type CardProps = {
+  svgContainer?: string,
+  variant: CardVariants,  
+  children: ReactNode,
+  headingText: string,
+  titleText: string,
+}
+
+const base = {
+    heading: HEADING_TEXT_STYLES.xxxl,
+    titleText: TITLE_TEXT_STYLES.md
+}
+
+const variants = {
+  primary : {
+    container: "border border-black/30",
+    ...base
+  },
+  secondary: {
+    container: "bg-secondary-2 text-white",
+    ...base
+  },
+  none: {
+    container: "max-w-none",
+    heading: TITLE_TEXT_STYLES.xl,
+    titleText: TITLE_TEXT_STYLES.sm
+  }
+}
+
+function Card({svgContainer = "bg-black", variant="primary", titleText="Text Empty", headingText="Heading empty", children="Error Child Empty"}:CardProps) {  
+  const getStyles = variants[variant]
+  return (
+    <div className={`flex flex-col gap-6 max-w-67.5 items-center py-7.5 rounded-sm px-13 ${getStyles.container}`}>
+      <div className={`${svgContainer}  p-2.5 rounded-full outline-10 outline-black/30`}>
+        {children}
+      </div>
+      <div className="flex flex-col items-center justify-center text-center gap-3">
+        <span className={`${getStyles.heading}  font-bold`}>{headingText}</span>
+        <span className={`${getStyles.titleText}`}>{titleText}</span>
+      </div>
+    </div>
+  )
 }
 
 export default Card
