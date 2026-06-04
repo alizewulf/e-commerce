@@ -13,7 +13,7 @@ import type { StateProps } from "../interfaces/interface";
 import DeliverySVG from "../ui/icons/DeliveryIcon";
 import HeadphonesSVG from "../ui/icons/Headphones";
 import SecureSVG from "../ui/icons/Secure";
-import { HEADING_TEXT_STYLES} from "../shared/styles/textVariables";
+import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES} from "../shared/styles/textVariables";
 
 
 function AboutPage({ state }: StateProps) {
@@ -22,7 +22,7 @@ function AboutPage({ state }: StateProps) {
   return (
     <section className="mt-20 flex gap-35 flex-col">
       <div className="px-33.75 flex font-poppins">
-        <p className="font-base text-black/50 leading-5.25">
+        <p className={`${TITLE_TEXT_STYLES.sm} text-black/50`}>
           Home / <span className="text-black">About</span>
         </p>
       </div>

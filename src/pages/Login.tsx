@@ -1,12 +1,12 @@
 import AuthLayout from "../components/layout/auth/Auth";
 import PrimaryButton from "../base/button/ButtonPrimary";
-import AuthInput from "../base/input/Input";
 import type { StateProps } from "../interfaces/interface";
 import { useState } from "react";
 import { AUTH_API } from "../services/AuthAPI";
 import { useNavigate } from "react-router-dom";
 import { loginTranslations } from "../utils/translations/loginPage";
 import { TITLE_TEXT_STYLES } from "../shared/styles/textVariables";
+import InputModule from "../base/input/Inputs";
 
 function LoginPage({ state, setState }: StateProps) {
   const t = loginTranslations[state.lang as keyof typeof loginTranslations];
@@ -37,20 +37,9 @@ function LoginPage({ state, setState }: StateProps) {
   return (
     <AuthLayout h2={t.loginTitle} p={t.loginSubtitle}>
       <form onSubmit={handleLogin} className="flex flex-col gap-10">
-        <AuthInput
-          type="email"
-          placeholder={t.emailPlaceholder}
-          value={email}
-          onChange={setEmail}
-        />
 
-        <AuthInput
-          type="password"
-          placeholder={t.passwordPlaceholder}
-          value={password}
-          onChange={setPassword}
-        />
-
+        <InputModule type="email" variant="auth" as="input" required={true} placeholder={t.emailPlaceholder} value={email} onChange={setEmail}/>
+        <InputModule type="password" variant="auth" as="input" required={true} placeholder={t.passwordPlaceholder} value={password} onChange={setPassword}/>
         {error && <p>{error}</p>}
 
       

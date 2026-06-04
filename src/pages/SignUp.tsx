@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import PrimaryButton from "../base/button/ButtonPrimary";
-import AuthInput from "../base/input/Input";
 import AuthLayout from "../components/layout/auth/Auth";
 import { AUTH_API } from "../services/AuthAPI";
 import type { StateProps } from "../interfaces/interface";
 import { registerTranslation } from "../utils/translations/registerPage";
+import InputModule from "../base/input/Inputs";
 function SignUpPage({ state }: StateProps) {
   const t = registerTranslation[state.lang as keyof typeof registerTranslation];
   const navigate = useNavigate();
@@ -38,27 +38,10 @@ function SignUpPage({ state }: StateProps) {
   return (
     <AuthLayout h2={t.signupTitle} p={t.signupSubtitle}>
       <form className="flex flex-col gap-10" onSubmit={handleRegister}>
-      <AuthInput
-        type="text"
-        placeholder={t.namePlaceholder}
-        value={username}
-        onChange={setUsername}
-      />
-
-      <AuthInput
-        type="email"
-        placeholder={t.emailPlaceholder}
-        value={email}
-        onChange={setEmail}
-      />
-
-      <AuthInput
-        type="password"
-        placeholder={t.passwordPlaceholder}
-        value={password}
-        onChange={setPassword}
-      />
-
+        <InputModule type="text" variant="auth" as="input" required={true} placeholder={t.namePlaceholder} value={username} onChange={setUsername}/>
+        <InputModule type="email" variant="auth" as="input" required={true} placeholder={t.emailPlaceholder} value={email} onChange={setEmail}/>
+        <InputModule type="password" variant="auth" as="input" required={true} placeholder={t.passwordPlaceholder} value={password} onChange={setPassword}/>
+      
       {error && <p>{error}</p>}
     <div className="flex flex-col gap-8.5">
       <PrimaryButton type="submit">

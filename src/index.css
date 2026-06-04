@@ -20,6 +20,7 @@
     from { opacity: 0 };
     to { opacity: 100}
     };
-    --animate-show-dropdown: showDropdown 0.5s ease-in-out
+    --animate-show-dropdown: showDropdown 0.5s ease-in-out;
 };
+
 
