@@ -47,9 +47,8 @@ function ContactPage({state}:StateProps) {
                 <div className="flex flex-col gap-8 px-8 py-10">
                     <div className="flex flex-row gap-4">
                         <label className="relative flex flex-col gap-2">
-                            <span className="text-sm text-black">{t.yourName}</span>
                             {!name && (
-                                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/40">
+                                <span className="pointer-events-none flex gap-2 absolute left-4 top-1/2 -translate-y-1/2 text-black/40">
                                     <span>{t.yourName}</span>
                                     <span className="text-red-500">*</span>
                                 </span>
@@ -65,9 +64,8 @@ function ContactPage({state}:StateProps) {
                             />
                         </label>
                         <label className="relative flex flex-col gap-2">
-                            <span className="text-sm text-black">{t.yourEmail}</span>
                             {!email && (
-                                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/40">
+                                <span className="pointer-events-none flex gap-2 absolute left-4 top-1/2 -translate-y-1/2 text-black/40">
                                     <span>{t.yourEmail}</span>
                                     <span className="text-red-500">*</span>
                                 </span>
@@ -83,9 +81,8 @@ function ContactPage({state}:StateProps) {
                             />
                         </label>
                         <label className="relative flex flex-col gap-2">
-                            <span className="text-sm text-black">{t.yourPhone}</span>
                             {!phone && (
-                                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-black/40">
+                                <span className="pointer-events-none flex gap-2 absolute left-4 top-1/2 -translate-y-1/2 text-black/40">
                                     <span>{t.yourPhone}</span>
                                     <span className="text-red-500">*</span>
                                 </span>
@@ -103,9 +100,8 @@ function ContactPage({state}:StateProps) {
                     </div>
 
                     <label className="relative flex flex-col gap-2">
-                        <span className="text-sm text-black">{t.message}</span>
                         {!message && (
-                            <span className="pointer-events-none absolute left-4 top-4 text-black/40">
+                            <span className="pointer-events-none flex gap-2 absolute left-4 top-4 text-black/40">
                                 <span>{t.message}</span>
                                 <span className="text-red-500">*</span>
                             </span>
@@ -131,7 +127,7 @@ function ContactPage({state}:StateProps) {
             </div>
 
             {showNotification && (
-                <div className="fixed bottom-6 right-6 z-50 rounded-xl bg-black/90 px-4 py-3 text-white shadow-lg">
+                <div className={`fixed bottom-6 right-6 z-50 rounded-xl bg-secondary-2/90 px-4 py-3 text-white shadow-lg ${TITLE_TEXT_STYLES.md}`}>
                     {t.messageSent}
                 </div>
             )}
@@ -140,3 +136,4 @@ function ContactPage({state}:StateProps) {
 }
 
 export default ContactPage
+

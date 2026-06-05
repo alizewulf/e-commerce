@@ -90,7 +90,7 @@ function AboutPage({ state }: StateProps) {
         </div>
       </div>
     <div className="flex justify-around">
-          <Card variant="none" headingText={t.features.freeAndFastDelivery} titleText={t.features.freeAndFastDelivery}>
+          <Card variant="none" headingText={t.features.freeAndFastDelivery} titleText={t.features.customerService24_7}>
             <DeliverySVG/>
           </Card>
           <Card variant="none" headingText={t.customersActiveSite} titleText={t.features.supportNote}>

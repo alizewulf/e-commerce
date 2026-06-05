@@ -1,0 +1,21 @@
+function SecondaryArrowSVG() {
+  return (
+    <svg
+      width="18"
+      height="16"
+      viewBox="0 0 18 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0.75 7.75H17.25M10.25 14.75L17.25 7.75L10.25 0.75"
+        stroke="#FAFAFA"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default SecondaryArrowSVG;

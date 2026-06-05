@@ -24,8 +24,12 @@ export const HEADING_TEXT_STYLES = {
     sm: "font-inter tracking-[4%] leading-[30px] text-[32px]",
     /** 36px /30px */
     md: "text-4xl font-inter tracking-[5%] leading-7.5",
+    /** 48px / 60px */
+    xl: "text-[48px] font-inter leading-15 tracking-[4%]",
+    
     /** 54 px / 64px */
     xxl: "text-[54px] leading-16 font-inter tracking-[6%]",
+
     xxxl: "font-inter text-[32px] leading-7.5 tracking-[4%]",
 
     /** 110px / 115px */

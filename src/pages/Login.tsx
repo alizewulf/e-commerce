@@ -2,7 +2,7 @@ import AuthLayout from "../components/layout/auth/Auth";
 import PrimaryButton from "../base/button/ButtonPrimary";
 import type { StateProps } from "../interfaces/interface";
 import { useState } from "react";
-import { AUTH_API } from "../services/AuthAPI";
+import { AUTH_API } from "../services/auth/AuthAPI";
 import { useNavigate } from "react-router-dom";
 import { loginTranslations } from "../utils/translations/loginPage";
 import { TITLE_TEXT_STYLES } from "../shared/styles/textVariables";

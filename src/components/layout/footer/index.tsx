@@ -119,17 +119,17 @@ function Footer({ state }: StateProps) {
           <div className="flex gap-2.5">
             <img src={QRIMG} alt="QR" />
 
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col justify-between">
               <img src={PlayStoreIMG} alt="Play Store" />
               <img src={AppStoreImg} alt="App Store" />
             </div>
           </div>
 
           <div className="flex gap-6 items-center">
-            <img src={FacebookSVG} alt="facebook icon"/>
-            <TwitterSVG color="white"/>
-            <InstagramSVG color="white" color2="black" stroke="white"/>
-            <LinkedInSVG/>
+            <img className="cursor-pointer" src={FacebookSVG} alt="facebook icon"/>
+            <TwitterSVG className="cursor-pointer" color="white"/>
+            <InstagramSVG className="cursor-pointer" color="white" color2="black" stroke="white"/>
+            <LinkedInSVG className="cursor-pointer"/>
           </div>
         </div>
       </section>

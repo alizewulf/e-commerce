@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import PrimaryButton from "../base/button/ButtonPrimary";
 import AuthLayout from "../components/layout/auth/Auth";
-import { AUTH_API } from "../services/AuthAPI";
+import { AUTH_API } from "../services/auth/AuthAPI";
 import type { StateProps } from "../interfaces/interface";
 import { registerTranslation } from "../utils/translations/registerPage";
 import InputModule from "../base/input/Inputs";

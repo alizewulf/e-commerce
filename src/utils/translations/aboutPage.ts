@@ -14,7 +14,7 @@ export const aboutPageTranslation = {
 
     features: {
       freeAndFastDelivery: "FREE AND FAST DELIVERY",
-      customerService24_7: "24/7 CUSTOMER SERVICE",
+      customerService24_7: "24/7 Customer service",
       moneyBackGuarantee: "MONEY BACK GUARANTEE",
       freeDeliveryNote: "Free delivery for all orders over $140",
       supportNote: "Friendly 24/7 customer support",
@@ -37,7 +37,7 @@ export const aboutPageTranslation = {
 
     features: {
       freeAndFastDelivery: "БЫСТРАЯ И БЕСПЛАТНАЯ ДОСТАВКА",
-      customerService24_7: "ПОДДЕРЖКА 24/7",
+      customerService24_7: "Поддержка 24/7",
       moneyBackGuarantee: "ГАРАНТИЯ ВОЗВРАТА ДЕНЕГ",
       freeDeliveryNote: "Бесплатная доставка для заказов от $140",
       supportNote: "Дружелюбная поддержка 24/7",
@@ -60,7 +60,7 @@ export const aboutPageTranslation = {
 
     features: {
       freeAndFastDelivery: "DARMOWA I SZYBKA DOSTAWA",
-      customerService24_7: "OBSŁUGA KLIENTA 24/7",
+      customerService24_7: "Obsługa klienta 24/7",
       moneyBackGuarantee: "GWARANCJA ZWROTU PIENIĘDZY",
       freeDeliveryNote: "Darmowa dostawa dla zamówień powyżej $140",
       supportNote: "Przyjazna obsługa 24/7",
@@ -83,7 +83,7 @@ export const aboutPageTranslation = {
 
     features: {
       freeAndFastDelivery: "KOSTENLOSE UND SCHNELLE LIEFERUNG",
-      customerService24_7: "24/7 KUNDENSERVICE",
+      customerService24_7: "24/7 Kundenservice",
       moneyBackGuarantee: "GELD-ZURÜCK-GARANTIE",
       freeDeliveryNote: "Kostenlose Lieferung für Bestellungen über $140",
       supportNote: "Freundlicher 24/7 Support",
