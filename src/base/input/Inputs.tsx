@@ -18,6 +18,7 @@ interface InputProps {
     required?: boolean
     value?: string
     onChange?: (value: string) => void
+    className?: string
 }
 
 function InputModule({
@@ -27,10 +28,11 @@ function InputModule({
     placeholder,
     required,
     value,
-    onChange
+    onChange,
+    className: extraClassName = ""
 }: InputProps) {
 
-    const className = `${variants[variant]} ${TITLE_TEXT_STYLES.md} placeholder:opacity-50`
+    const className = `${variants[variant]} ${TITLE_TEXT_STYLES.md} placeholder:opacity-50 ${extraClassName}`
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         onChange?.(e.target.value)
