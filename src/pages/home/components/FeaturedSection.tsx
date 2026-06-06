@@ -15,7 +15,7 @@ function FeaturedSection({state}:StateProps) {
     <section className="flex gap-15 flex-col">
       <Heading textContent="Featured" subTitle="New Arrival" />
 
-      <div className="flex flex-row w-full gap-8 justify-between h-[600px]">
+      <div className="flex flex-row w-full gap-8 justify-between h-150">
         <div className="flex flex-col relative bg-black w-1/2">
           <img
             src={Playstation}
