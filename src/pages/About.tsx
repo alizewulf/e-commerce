@@ -10,10 +10,8 @@ import Staff3 from "/Frame 876.png";
 import StaffCard from "../ui/cards/StaffMembers";
 import { aboutPageTranslation } from "../utils/translations/aboutPage";
 import type { StateProps } from "../interfaces/interface";
-import DeliverySVG from "../ui/icons/DeliveryIcon";
-import HeadphonesSVG from "../ui/icons/Headphones";
-import SecureSVG from "../ui/icons/Secure";
 import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES} from "../shared/styles/textVariables";
+import MergedCards from "../ui/cards/Card/Card.merge";
 
 
 function AboutPage({ state }: StateProps) {
@@ -48,7 +46,7 @@ function AboutPage({ state }: StateProps) {
             <StoreSVG/>
           </Card>
 
-          <Card variant="secondary" headingText="33k" svgContainer="bg-white" titleText={t.monthlyProductSale}>
+          <Card variant="secondary" headingText="33k" svgBgClass="bg-white" titleText={t.monthlyProductSale}>
             <SaleSVG/>
           </Card>
 
@@ -90,15 +88,7 @@ function AboutPage({ state }: StateProps) {
         </div>
       </div>
     <div className="flex justify-around">
-          <Card variant="none" headingText={t.features.freeAndFastDelivery} titleText={t.features.customerService24_7}>
-            <DeliverySVG/>
-          </Card>
-          <Card variant="none" headingText={t.customersActiveSite} titleText={t.features.supportNote}>
-            <HeadphonesSVG/>
-          </Card>
-          <Card variant="none" headingText={t.features.moneyBackGuarantee} titleText={t.features.refundNote}>
-            <SecureSVG/>
-          </Card>
+          <MergedCards state={state}/>
     </div>
     </section>
   );

@@ -27,7 +27,7 @@ function App() {
 
     <main>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage state={state}/>} />
         <Route path="/contact" element={<ContactPage state={state} setState={setState} />} />
         <Route path="/about" element={<AboutPage state={state} />} />
         <Route

@@ -41,7 +41,7 @@ function Dropdown<T extends string = string>({ dropdown, setDropdown, trigger, i
       {dropdown === name && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`absolute top-9 right-0 bg-black/65 backdrop-blur-xs text-white rounded-sm ${panelClassName || ""}`}
+          className={`absolute top-9 right-0 z-2 bg-black/65 backdrop-blur-xs text-white rounded-sm ${panelClassName || ""}`}
           style={{ animation: "var(--animate-show-dropdown)", ...(panelStyle || {}) }}
         >
           <ul className="flex flex-col gap-3 p-4 text-sm">

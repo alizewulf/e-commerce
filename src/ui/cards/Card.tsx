@@ -3,10 +3,12 @@ import { TITLE_TEXT_STYLES, HEADING_TEXT_STYLES } from "../../shared/styles/text
 
 type CardVariants = "primary" | "secondary" | "none"
 type CardProps = {
-  svgContainer?: string,
-  variant: CardVariants,  
-  children: ReactNode,
-  headingText: string,
+  svgContainer?: boolean,
+  svgBgClass?: string,
+  variant?: CardVariants,
+  showOutline?: boolean,
+  children?: ReactNode,
+  headingText: string | ReactNode,
   titleText: string,
 }
 
@@ -31,15 +33,28 @@ const variants = {
   }
 }
 
-function Card({svgContainer = "bg-black", variant="primary", titleText="Text Empty", headingText="Heading empty", children="Error Child Empty"}:CardProps) {  
+function Card({
+  svgContainer = true,
+  svgBgClass = "bg-black",
+  variant = "primary",
+  showOutline = true,
+  titleText = "Text Empty",
+  headingText = "Heading empty",
+  children
+}: CardProps) {
   const getStyles = variants[variant]
+  const outlineClass = showOutline ? "outline-10 outline-black/30" : ""
+  const svgWrapperClass = svgContainer ? `${svgBgClass} p-2.5 rounded-full` : "p-2.5 rounded-full"
+
   return (
     <div className={`flex flex-col gap-6 max-w-67.5 items-center py-7.5 rounded-sm px-13 ${getStyles.container}`}>
-      <div className={`${svgContainer}  p-2.5 rounded-full outline-10 outline-black/30`}>
+      {children && (
+      <div className={`${svgWrapperClass} ${outlineClass} flex items-center justify-center`}>
         {children}
       </div>
+      )}
       <div className="flex flex-col items-center justify-center text-center gap-3">
-        <span className={`${getStyles.heading}  font-bold`}>{headingText}</span>
+        <span className={`${getStyles.heading} font-bold`}>{headingText}</span>
         <span className={`${getStyles.titleText}`}>{titleText}</span>
       </div>
     </div>
