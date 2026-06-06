@@ -24,20 +24,20 @@ function HomePage({state}:StateProps) {
         <HeroBanner state={state} products={products}/>
       </section>
 
-      <FlashSalesSection products={products} />
+      <FlashSalesSection state={state} products={products} />
 
-      <CategoriesSection products={products} />
+      <CategoriesSection state={state} products={products} />
 
-      <BestSellingSection products={products} />
+      <BestSellingSection state={state} products={products} />
 
-      <JBLCard/>
+      <JBLCard state={state}/>
 
-      <OurProducts products={products}/>
+      <OurProducts state={state} products={products}/>
 
       <FeaturedSection state={state}/>
     </div>
   );
 }
 
-
 export default HomePage;
+

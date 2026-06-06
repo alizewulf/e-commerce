@@ -1,5 +1,5 @@
 export type State = {
-  lang: string;
+  lang:string
   isAuth: boolean;
   user: User | null;
 };
@@ -56,3 +56,8 @@ export interface Product {
   thumbnail: string
   images: string[]
 }
+
+export type HomePageProps = {
+  products?: Product[];
+  state: State;
+};

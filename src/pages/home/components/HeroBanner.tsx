@@ -3,19 +3,15 @@ import {
   HEADING_TEXT_STYLES,
   TITLE_TEXT_STYLES,
 } from "../../../shared/styles/textVariables";
-import type { Product, State } from "../../../interfaces/interface";
-import { translationsHeroBanner } from "../../../utils/translations/homepage/HeroBanner";
+import { heroTranslations } from "../../../utils/translations/homepage/hero";
 import { useEffect, useState } from "react";
 import { getRandomIndex } from "../../../utils/getRandomIndex";
+import type { HomePageProps } from "../../../interfaces/interface";
 
-type Props = {
-  products: Product[];
-  state: State;
-};
-
-export function HeroBanner({ products, state }: Props) {
+export function HeroBanner({ products, state }: HomePageProps) {
+  if (!products) return null
   const t =
-    translationsHeroBanner[state.lang as keyof typeof translationsHeroBanner];
+    heroTranslations[state.lang as keyof typeof heroTranslations];
   const [currentIndex, setCurrentIndex] = useState(() =>
     getRandomIndex(products.length),
   );
