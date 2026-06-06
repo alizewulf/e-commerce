@@ -22,7 +22,7 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/e-commerce">
       <Header state={state} setState={setState} />
 
     <main>

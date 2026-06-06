@@ -21,7 +21,7 @@ function HomePage({state}:StateProps) {
     <div className="flex px-33.75 flex-col gap-35">
       <section className="py-10 flex flex-1 justify-between gap-35">
         <CategoryList categories={categories} />
-        <HeroBanner />
+        <HeroBanner state={state} products={products}/>
       </section>
 
       <FlashSalesSection products={products} />
