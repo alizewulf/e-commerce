@@ -9,6 +9,7 @@ import type { State } from "./interfaces/interface";
 import Footer from "./components/layout/footer";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/Login";
+import ProductPage from "./components/layout/productPage";
 
 function App() {
   const [state, setState] = useState<State>(() => {
@@ -54,6 +55,7 @@ function App() {
           path="*"
           element={<NotFoundPage state={state} setState={setState} />}
         />
+        <Route path="/product/:id" element={<ProductPage/>}/>
       </Routes>
     </main>
 

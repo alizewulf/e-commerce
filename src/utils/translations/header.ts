@@ -12,7 +12,7 @@ export const headerTranslations = {
   ru: {
     sale: "Летняя распродажа купальников. Скидка 50% и бесплатная доставка!",
     shop: "Купить",
-    homePage: "Главный",
+    homePage: "Главная",
     contactPage: "Контакт",
     about: "О нас",
     signup: "Регистрация",
@@ -33,7 +33,7 @@ export const headerTranslations = {
     sale: "Sommerschlussverkauf. 50% Rabatt und kostenloser Versand!",
     shop: "Jetzt kaufen",
     homePage: "Startseite",
-    contactPage: "Kontaktseite",
+    contactPage: "Kontakt",
     about: "Über uns",
     signup: "Registrieren",
     searchInput: "Produkte suchen…",

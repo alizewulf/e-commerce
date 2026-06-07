@@ -7,6 +7,7 @@ import { heroTranslations } from "../../../utils/translations/homepage/hero";
 import { useEffect, useState } from "react";
 import { getRandomIndex } from "../../../utils/getRandomIndex";
 import type { HomePageProps } from "../../../interfaces/interface";
+import { useNavigate } from "react-router-dom";
 
 export function HeroBanner({ products, state }: HomePageProps) {
   if (!products) return null
@@ -27,6 +28,7 @@ export function HeroBanner({ products, state }: HomePageProps) {
   if (products.length === 0) {
     return null;
   }
+  const navigate = useNavigate()
   return (
     <div className="bg-black w-full text-white h-90 relative">
       <div className="flex flex-col w-fit gap-5 px-16 pt-15 h-fit">
@@ -38,6 +40,7 @@ export function HeroBanner({ products, state }: HomePageProps) {
 
         <button
           className={`${TITLE_TEXT_STYLES.md} w-40 cursor-pointer flex items-center gap-3 underline`}
+          onClick={() => navigate(`/product/${products[currentIndex].id}`)}
         >
           {t.shopNow} <SecondaryArrowSVG />
         </button>

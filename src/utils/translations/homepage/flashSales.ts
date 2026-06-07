@@ -5,7 +5,7 @@ export const FlashSales = {
     viewAllProducts: "View All Products",
   },
   ru: {
-    today: "Сегодняшнее",
+    today: "Сегодня",
     FlashSale: "Срочные распродажи",
     viewAllProducts: "Смотреть все товары",
   },
