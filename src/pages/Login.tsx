@@ -35,22 +35,22 @@ function LoginPage({ state, setState }: StateProps) {
     navigate("/")
     };
   return (
-    <AuthLayout h2={t.loginTitle} p={t.loginSubtitle}>
+    <AuthLayout h2={t.content.loginTitle} p={t.content.loginSubtitle}>
       <form onSubmit={handleLogin} className="flex flex-col gap-10">
 
-        <InputModule type="email" variant="auth" as="input" required={true} placeholder={t.emailPlaceholder} value={email} onChange={setEmail}/>
-        <InputModule type="password" variant="auth" as="input" required={true} placeholder={t.passwordPlaceholder} value={password} onChange={setPassword}/>
+        <InputModule type="email" variant="auth" as="input" required={true} placeholder={t.content.emailPlaceholder} value={email} onChange={setEmail}/>
+        <InputModule type="password" variant="auth" as="input" required={true} placeholder={t.content.passwordPlaceholder} value={password} onChange={setPassword}/>
         {error && <p>{error}</p>}
 
       
       <div className="flex justify-between items-center">
-        <PrimaryButton type="submit" children={t.loginButton} />
+        <PrimaryButton type="submit" children={t.actions.loginButton} />
     
         <button
           disabled
           className={`${TITLE_TEXT_STYLES.md} my-auto text-secondary-2`}
         >
-          {t.forgotPassword}
+          {t.content.forgotPassword}
         </button>
       </div>
       </form>

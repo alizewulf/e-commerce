@@ -1,42 +1,64 @@
+import { commonTranslations } from "./common";
+
 export const loginTranslations = {
   en: {
-    loginTitle: "Log in to Exclusive",
-    loginSubtitle: "Enter your details below",
-    emailPlaceholder: "Email or Phone Number",
-    passwordPlaceholder: "Password",
-    loginButton: "Log In",
-    forgotPassword: "Forget Password?",
+    content: {
+      loginTitle: "Log in to Exclusive",
+      loginSubtitle: "Enter your details below",
+      emailPlaceholder: commonTranslations.en.emailPlaceholder,
+      passwordPlaceholder: commonTranslations.en.passwordPlaceholder,
+      forgotPassword: "Forget Password?",
+    },
+    actions: {
+      loginButton: "Log In",
+    },
   },
   ru: {
-    loginTitle: "Войти в Exclusive",
-    loginSubtitle: "Введите свои данные ниже",
-    emailPlaceholder: "Email или номер телефона",
-    passwordPlaceholder: "Пароль",
-    loginButton: "Войти",
-    forgotPassword: "Забыли пароль?",
+    content: {
+      loginTitle: "Войти в Exclusive",
+      loginSubtitle: "Введите свои данные ниже",
+      emailPlaceholder: commonTranslations.ru.emailPlaceholder,
+      passwordPlaceholder: commonTranslations.ru.passwordPlaceholder,
+      forgotPassword: "Забыли пароль?",
+    },
+    actions: {
+      loginButton: "Войти",
+    },
   },
   pl: {
-    loginTitle: "Zaloguj się do Exclusive",
-    loginSubtitle: "Wprowadź swoje dane poniżej",
-    emailPlaceholder: "E-mail lub numer telefonu",
-    passwordPlaceholder: "Hasło",
-    loginButton: "Zaloguj się",
-    forgotPassword: "Zapomniałeś hasła?",
+    content: {
+      loginTitle: "Zaloguj się do Exclusive",
+      loginSubtitle: "Wprowadź swoje dane poniżej",
+      emailPlaceholder: commonTranslations.pl.emailPlaceholder,
+      passwordPlaceholder: commonTranslations.pl.passwordPlaceholder,
+      forgotPassword: "Zapomniałeś hasła?",
+    },
+    actions: {
+      loginButton: "Zaloguj się",
+    },
   },
   de: {
-    loginTitle: "Bei Exclusive anmelden",
-    loginSubtitle: "Gib unten deine Daten ein",
-    emailPlaceholder: "E-Mail oder Telefonnummer",
-    passwordPlaceholder: "Passwort",
-    loginButton: "Anmelden",
-    forgotPassword: "Passwort vergessen?",
+    content: {
+      loginTitle: "Bei Exclusive anmelden",
+      loginSubtitle: "Gib unten deine Daten ein",
+      emailPlaceholder: commonTranslations.de.emailPlaceholder,
+      passwordPlaceholder: commonTranslations.de.passwordPlaceholder,
+      forgotPassword: "Passwort vergessen?",
+    },
+    actions: {
+      loginButton: "Anmelden",
+    },
   },
   ge: {
-    loginTitle: "შესვლა Exclusive-ში",
-    loginSubtitle: "შეიყვანეთ თქვენი მონაცემები ქვემოთ",
-    emailPlaceholder: "ელფოსტა ან ტელეფონის ნომერი",
-    passwordPlaceholder: "პაროლი",
-    loginButton: "შესვლა",
-    forgotPassword: "დაგავიწყდათ პაროლი?",
+    content: {
+      loginTitle: "შესვლა Exclusive-ში",
+      loginSubtitle: "შეიყვანეთ თქვენი მონაცემები ქვემოთ",
+      emailPlaceholder: commonTranslations.ge.emailPlaceholder,
+      passwordPlaceholder: commonTranslations.ge.passwordPlaceholder,
+      forgotPassword: "დაგავიწყდათ პაროლი?",
+    },
+    actions: {
+      loginButton: "შესვლა",
+    },
   },
-};
+} as const;

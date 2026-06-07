@@ -54,7 +54,7 @@ function Card({
       </div>
       )}
       <div className="flex flex-col items-center justify-center text-center gap-3">
-        <span className={`${getStyles.heading} font-bold`}>{headingText}</span>
+        <span className={`${getStyles.heading} font-bold uppercase`}>{headingText}</span>
         <span className={`${getStyles.titleText}`}>{titleText}</span>
       </div>
     </div>

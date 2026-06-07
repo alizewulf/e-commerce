@@ -8,12 +8,35 @@ import {
   TITLE_TEXT_STYLES,
 } from "../../../shared/styles/textVariables";
 import MergedCards from "../../../ui/cards/Card/Card.merge";
-import type { StateProps } from "../../../interfaces/interface";
+import type { CardData, StateProps } from "../../../interfaces/interface";
+import { getTranslation } from "../../../utils/translations";
+import { featuredSectionTranslations } from "../../../utils/translations/featuredSection";
+import FeaturedCard from "./FeaturedCard";
 
-function FeaturedSection({state}:StateProps) {
+
+function FeaturedSection({ state }: StateProps) {
+  const t = getTranslation(featuredSectionTranslations, state.lang);
+
+  const bottomCards: CardData[] = [
+    {
+      title: t.speakersTitle,
+      description: t.speakersDescription,
+      image: Speaker,
+      alt: "Speakers IMG",
+      buttonLabel: t.button,
+    },
+    {
+      title: t.perfumeTitle,
+      description: t.perfumeDescription,
+      image: Parfume,
+      alt: "Parfume",
+      buttonLabel: t.button,
+    },
+  ];
+
   return (
     <section className="flex gap-15 flex-col">
-      <Heading textContent="Featured" subTitle="New Arrival" />
+      <Heading textContent={t.heading} subTitle={t.subtitle} />
 
       <div className="flex flex-row w-full gap-8 justify-between h-150">
         <div className="flex flex-col relative bg-black w-1/2">
@@ -24,21 +47,21 @@ function FeaturedSection({state}:StateProps) {
           />
           <div className="flex flex-col items-start h-full justify-end p-8 text-white z-1 gap-4">
             <p className={`${HEADING_TEXT_STYLES.xs} font-semibold`}>
-              Playstation 5
+              {t.mainTitle}
             </p>
             <span className={TITLE_TEXT_STYLES.sm}>
-              Black and White version of the PS5 <br /> coming out on sale.
+              {t.mainDescriptionLine1}
+              <br />
+              {t.mainDescriptionLine2}
             </span>
-            <button
-              className={`cursor-pointer underline ${TITLE_TEXT_STYLES.md}`}
-            >
-              Shop Now
+            <button className={`cursor-pointer underline ${TITLE_TEXT_STYLES.md}`}>
+              {t.button}
             </button>
           </div>
         </div>
 
         <div className="flex flex-col gap-6 w-1/2 h-full">
-          <div className="flex flex-row  bg-[#0D0D0D] relative h-full">
+          <div className="flex flex-row bg-[#0D0D0D] relative h-full">
             <img
               src={womanWithHat}
               alt="woman with hat"
@@ -46,66 +69,29 @@ function FeaturedSection({state}:StateProps) {
             />
             <div className="flex flex-col justify-end items-start text-white p-6 gap-4">
               <h3 className={`${HEADING_TEXT_STYLES.xs} font-semibold`}>
-                Women's collection
+                {t.womenTitle}
               </h3>
               <p className={TITLE_TEXT_STYLES.sm}>
-                Featured woman collections that <br /> give you another vibe.
+                {t.womenDescriptionLine1}
+                <br />
+                {t.womenDescriptionLine2}
               </p>
-              <button
-                className={`cursor-pointer underline ${TITLE_TEXT_STYLES.md}`}
-              >
-                Shop Now
+              <button className={`cursor-pointer underline ${TITLE_TEXT_STYLES.md}`}>
+                {t.button}
               </button>
             </div>
           </div>
 
           <div className="flex w-full h-full gap-5">
-            <div className="bg-[#0D0D0D] w-1/2 h-full flex relative z-2">
-              <img
-                src={Speaker}
-                alt="Speakers IMG"
-                className="absolute right-1/2 translate-1/2 bottom-1/2 z-0"
-              />
-              <div className="flex flex-col justify-end items-start text-white p-6 gap-4">
-                <h3 className={`${HEADING_TEXT_STYLES.xs} z-2 font-semibold`}>
-                  Speakers
-                </h3>
-                <p className={`${TITLE_TEXT_STYLES.sm} z-2`}>
-                  Amazon wireless speakers
-                </p>
-                <button
-                  className={`cursor-pointer underline z-2 ${TITLE_TEXT_STYLES.md}`}
-                >
-                  Shop Now
-                </button>
-              </div>
-            </div>
-
-            <div className="bg-[#0D0D0D] w-1/2 h-full flex relative z-2">
-              <img
-                src={Parfume}
-                alt="Parfume"
-                className="absolute right-1/2 translate-1/2 bottom-1/2 z-0"
-              />
-              <div className="flex flex-col justify-end items-start text-white p-6 gap-4">
-                <h3 className={`${HEADING_TEXT_STYLES.xs} z-2 font-semibold`}>
-                  Parfume
-                </h3>
-                <p className={`${TITLE_TEXT_STYLES.sm} z-2`}>
-                  GUCCI INTENSE OUD EDP
-                </p>
-                <button
-                  className={`cursor-pointer underline z-2 ${TITLE_TEXT_STYLES.md}`}
-                >
-                  Shop Now
-                </button>
-              </div>
-            </div>
+            {bottomCards.map((card) => (
+              <FeaturedCard key={card.title} {...card} />
+            ))}
           </div>
         </div>
       </div>
+
       <div className="mt-35">
-      <MergedCards state={state}/>
+        <MergedCards state={state} />
       </div>
     </section>
   );

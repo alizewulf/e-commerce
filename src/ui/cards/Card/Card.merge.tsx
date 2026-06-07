@@ -19,7 +19,7 @@ function MergedCards({state}:StateProps) {
       </Card>
       <Card
         variant="none"
-        headingText={t.customersActiveSite}
+        headingText={t.statistics.customersActiveSite}
         titleText={t.features.supportNote}
       >
         <HeadphonesSVG />

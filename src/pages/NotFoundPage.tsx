@@ -13,9 +13,9 @@ function NotFoundPage({ state }: StateProps) {
       </p>
       <div className="flex flex-col items-center justify-center mt-35 gap-10">
         <h2 className={HEADING_TEXT_STYLES.max}>
-          {t.error404}
+          {t.content.error404}
         </h2>
-        <p>{t.pageNotFound}</p>
+        <p>{t.content.pageNotFound}</p>
         <NavLink to={"/"}>
           <PrimaryButton children="Back to home page"/>
         </NavLink>

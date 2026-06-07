@@ -28,11 +28,11 @@ function AboutPage({ state }: StateProps) {
       <div className="flex justify-around">
         <div className="mt-30  text-black flex flex-col">
           <h1 className={`${HEADING_TEXT_STYLES.xxl} font-semibold `}>
-            {t.ourStory}
+            {t.content.ourStory}
           </h1>
           <div className="flex flex-col gap-6 mt-10 font-poppins w-131.25">
-            <p>{t.launchText}</p>
-            <p>{t.offerText}</p>
+            <p>{t.content.launchText}</p>
+            <p>{t.content.offerText}</p>
           </div>
         </div>
         <div className="mt-10.50">
@@ -42,19 +42,19 @@ function AboutPage({ state }: StateProps) {
 
       <div className="flex justify-around">
 
-          <Card variant="primary" headingText="10.5k" titleText={t.sellersActiveSite}>
+          <Card variant="primary" headingText="10.5k" titleText={t.statistics.sellersActiveSite}>
             <StoreSVG/>
           </Card>
 
-          <Card variant="secondary" headingText="33k" svgBgClass="bg-white" titleText={t.monthlyProductSale}>
+          <Card variant="secondary" headingText="33k" svgBgClass="bg-white" titleText={t.statistics.monthlyProductSale}>
             <SaleSVG/>
           </Card>
 
-          <Card variant="primary" headingText="45.5k" titleText={t.customersActiveSite}>
+          <Card variant="primary" headingText="45.5k" titleText={t.statistics.customersActiveSite}>
             <ShoppingSVG/>
           </Card>
 
-          <Card variant="primary" headingText="25k" titleText={t.annualGrossSale}>
+          <Card variant="primary" headingText="25k" titleText={t.statistics.annualGrossSale}>
             <MoneyBagSVG/>
           </Card>
           
@@ -64,17 +64,17 @@ function AboutPage({ state }: StateProps) {
         <div className="flex justify-around">
           <StaffCard
             memberName="Tom Cruise"
-            memberPosition={t.founderChairman}
+            memberPosition={t.team.founderChairman}
             staffImg={Staff1}
           />
           <StaffCard
             memberName="Emma Watson"
-            memberPosition={t.managingDirector}
+            memberPosition={t.team.managingDirector}
             staffImg={Staff2}
           />
           <StaffCard
             memberName="Will Smith"
-            memberPosition={t.productDesigner}
+            memberPosition={t.team.productDesigner}
             staffImg={Staff3}
           />
         </div>
