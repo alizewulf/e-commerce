@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import ArrowSVG from "../../../ui/icons/Arrow";
-import { TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";
+import ArrowSVG from "../../ui/icons/Arrow";
+import { TITLE_TEXT_STYLES } from "../../shared/styles/textVariables";
 
 type Props = {
   categories: [string, number][];

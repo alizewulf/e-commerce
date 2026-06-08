@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProducts } from "../../../services/getProducts";
 import type { Product } from "../../../interfaces/interface";
+import ProductBreadcrumb from "./ProductBreadcrumb";
+import ProductGallery from "./ProductGallery";
+import ProductDetails from "./ProductDetails";
 
 export function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -42,11 +45,13 @@ export function ProductPage() {
   if (!product) return <div>Not found</div>;
 
   return (
-    <div>
-      <img src={product.thumbnail} alt={product.title} />
-      <h1>{product.title}</h1>
-      <p>{product.price}</p>
-    </div>
+    <section className="py-20 px-33.75">
+      <ProductBreadcrumb product={product} />
+      <div className="mt-12 grid gap-10 xl:grid-cols-[1.5fr_1fr]">
+        <ProductGallery product={product} />
+        <ProductDetails product={product} />
+      </div>
+    </section>
   );
 }
 

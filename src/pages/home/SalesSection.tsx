@@ -1,7 +1,7 @@
-import PrimaryButton from "../../../base/button/ButtonPrimary";
-import type { HomePageProps } from "../../../interfaces/interface";
-import ProductCard from "../../../ui/cards/ProductCard";
-import { bestSellersTranslation } from "../../../utils/translations/homepage/bestSellers";
+import PrimaryButton from "../../base/button/ButtonPrimary";
+import type { HomePageProps } from "../../interfaces/interface";
+import ProductCard from "../../ui/cards/ProductCard";
+import { bestSellersTranslation } from "../../utils/translations/homepage/bestSellers";
 import Heading from "./Heading";
 
 function BestSellingSection({ products, state }: HomePageProps) {

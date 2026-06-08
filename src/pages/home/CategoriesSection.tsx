@@ -1,7 +1,7 @@
-import { categoryIcons } from "../../../constants/categoryIcons";
-import type { HomePageProps } from "../../../interfaces/interface";
-import Card from "../../../ui/cards/Card";
-import { categoriesTranslate } from "../../../utils/translations/homepage/categories";
+import { categoryIcons } from "../../constants/categoryIcons";
+import type { HomePageProps } from "../../interfaces/interface";
+import Card from "../../ui/cards/Card";
+import { categoriesTranslate } from "../../utils/translations/homepage/categories";
 import Heading from "./Heading";
 
 function CategoriesSection({ products, state }: HomePageProps) {

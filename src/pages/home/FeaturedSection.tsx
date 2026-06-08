@@ -1,16 +1,16 @@
 import Heading from "./Heading";
-import Playstation from "../../../assets/ps5-slim-goedkope-playstation_large 1.png";
-import womanWithHat from "../../../assets/woman1.png";
-import Parfume from "../../../assets/652e82cd70aa6522dd785109a455904c.png";
-import Speaker from "../../../assets/69-694768_amazon-echo-png-clipart-transparent-amazon-echo-png 1.png";
+import Playstation from "../../assets/ps5-slim-goedkope-playstation_large 1.png";
+import womanWithHat from "../../assets/woman1.png";
+import Parfume from "../../assets/652e82cd70aa6522dd785109a455904c.png";
+import Speaker from "../../assets/69-694768_amazon-echo-png-clipart-transparent-amazon-echo-png 1.png";
 import {
   HEADING_TEXT_STYLES,
   TITLE_TEXT_STYLES,
-} from "../../../shared/styles/textVariables";
-import MergedCards from "../../../ui/cards/Card/Card.merge";
-import type { CardData, StateProps } from "../../../interfaces/interface";
-import { getTranslation } from "../../../utils/translations";
-import { featuredSectionTranslations } from "../../../utils/translations/featuredSection";
+} from "../../shared/styles/textVariables";
+import MergedCards from "../../ui/cards/Card/Card.merge";
+import type { CardData, StateProps } from "../../interfaces/interface";
+import { getTranslation } from "../../utils/translations";
+import { featuredSectionTranslations } from "../../utils/translations/featuredSection";
 import FeaturedCard from "./FeaturedCard";
 
 

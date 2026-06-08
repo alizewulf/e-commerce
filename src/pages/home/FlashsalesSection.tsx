@@ -1,8 +1,8 @@
-import PrimaryButton from "../../../base/button/ButtonPrimary";
-import type { HomePageProps } from "../../../interfaces/interface";
-import ProductCard from "../../../ui/cards/ProductCard";
-import Clock from "../../../ui/time/Clock";
-import { FlashSales } from "../../../utils/translations/homepage/flashSales";
+import PrimaryButton from "../../base/button/ButtonPrimary";
+import type { HomePageProps } from "../../interfaces/interface";
+import ProductCard from "../../ui/cards/ProductCard";
+import Clock from "../../ui/time/Clock";
+import { FlashSales } from "../../utils/translations/homepage/flashSales";
 import Heading from "./Heading";
 
 
