@@ -45,7 +45,7 @@ function Footer({ state }: StateProps) {
       title: t.account.title,
       type: "links",
       items: [
-        { label: t.account.myAccount, to: "/myaccount" },
+        { label: t.account.myAccount, to: "/manage-account" },
         { label: t.account.loginRegister, to: "/signup" },
         { label: t.account.cart, to: "/cart" },
         { label: t.account.wishlist, to: "/wishlist" },

@@ -10,6 +10,7 @@ import Footer from "./components/layout/footer";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/Login";
 import ProductPage from "./components/layout/productPage";
+import ManageMyAccount from "./pages/ManageMyAccount";
 
 function App() {
   const [state, setState] = useState<State>(() => {
@@ -56,6 +57,7 @@ function App() {
           element={<NotFoundPage state={state} setState={setState} />}
         />
         <Route path="/product/:id" element={<ProductPage/>}/>
+        <Route path="/manage-account" element={<ManageMyAccount/>}/>
       </Routes>
     </main>
 

@@ -4,7 +4,7 @@ import HeartSVG from "../../../../ui/icons/Heart";
 import type { Props } from "../../../../interfaces/interface";
 import { useState } from "react";
 import CartSVG from "../../../../ui/icons/Cart";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Dropdown from "../../../../ui/dropdown/Dropdown";
 import DropdownUserIcon from "../../../../ui/icons/DropdownUserIcon";
 import UserIconSVG from "../../../../ui/icons/UserIcon";
@@ -33,12 +33,16 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
       user: null,
     }));
   }
-
+  const navigate = useNavigate()
+  function handleNavigate() {
+    navigate('/manage-account')
+  }
   const userDropdownItems = [
     {
       id: "manageAccount",
       label: tDropdown.manageAccount,
       icon: <DropdownUserIcon color="transparent" />,
+      onClick: handleNavigate
     },
     {
       id: "myOrder",

@@ -1,6 +1,6 @@
 import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";
 import Clock from "../../../ui/time/Clock";
-import JBLimg from "../../assets/JBL_BOOMBOX_HERO.png"
+import JBLimg from "../../../assets/JBL_BOOMBOX_HERO.png"
 import type { HomePageProps } from "../../../interfaces/interface";
 import { JBLCardTranslation } from "../../../utils/translations/homepage/JBLCard";
 
