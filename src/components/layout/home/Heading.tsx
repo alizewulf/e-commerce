@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../../shared/styles/textVariables";
+import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";
 
 type HeadingProps = {
     textContent: string

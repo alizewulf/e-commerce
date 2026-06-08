@@ -1,13 +1,13 @@
 import { getTopCategories } from "../utils/products/getTopCategories";
-import { HeroBanner } from "./home/HeroBanner";
+import { HeroBanner } from "../components/layout/home/HeroBanner";
 import { useProducts } from "../hooks/userProducts";
-import BestSellingSection from "./home/SalesSection";
-import FlashSalesSection from "./home/FlashsalesSection";
-import CategoryList from "./home/CategoryList";
-import CategoriesSection from "./home/CategoriesSection";
-import JBLCard from "./home/JBLCard";
-import OurProducts from "./home/OurProducts";
-import FeaturedSection from "./home/FeaturedSection";
+import BestSellingSection from "../components/layout/home/SalesSection";
+import FlashSalesSection from "../components/layout/home/FlashsalesSection";
+import CategoryList from "../components/layout/home/CategoryList";
+import CategoriesSection from "../components/layout/home/CategoriesSection";
+import JBLCard from "../components/layout/home/JBLCard";
+import OurProducts from "../components/layout/home/OurProducts";
+import FeaturedSection from "../components/layout/home/FeaturedSection";
 import type { StateProps } from "../interfaces/interface";
 
 function HomePage({state}:StateProps) {

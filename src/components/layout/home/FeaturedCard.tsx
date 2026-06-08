@@ -1,5 +1,5 @@
-import type { CardData } from "../../interfaces/interface";
-import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../../shared/styles/textVariables";
+import type { CardData } from "../../../interfaces/interface";
+import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";
 
 
 

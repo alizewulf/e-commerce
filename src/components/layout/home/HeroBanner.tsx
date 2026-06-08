@@ -1,12 +1,12 @@
-import SecondaryArrowSVG from "../../ui/icons/SecondaryArrow";
+import SecondaryArrowSVG from "../../../ui/icons/SecondaryArrow";
 import {
   HEADING_TEXT_STYLES,
   TITLE_TEXT_STYLES,
-} from "../../shared/styles/textVariables";
-import { heroTranslations } from "../../utils/translations/homepage/hero";
+} from "../../../shared/styles/textVariables";
+import { heroTranslations } from "../../../utils/translations/homepage/hero";
 import { useEffect, useState } from "react";
-import { getRandomIndex } from "../../utils/getRandomIndex";
-import type { HomePageProps } from "../../interfaces/interface";
+import { getRandomIndex } from "../../../utils/getRandomIndex";
+import type { HomePageProps } from "../../../interfaces/interface";
 import { useNavigate } from "react-router-dom";
 
 export function HeroBanner({ products, state }: HomePageProps) {

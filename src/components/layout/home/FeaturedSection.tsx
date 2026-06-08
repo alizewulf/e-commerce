@@ -6,11 +6,11 @@ import Speaker from "../../assets/69-694768_amazon-echo-png-clipart-transparent-
 import {
   HEADING_TEXT_STYLES,
   TITLE_TEXT_STYLES,
-} from "../../shared/styles/textVariables";
-import MergedCards from "../../ui/cards/Card/Card.merge";
-import type { CardData, StateProps } from "../../interfaces/interface";
-import { getTranslation } from "../../utils/translations";
-import { featuredSectionTranslations } from "../../utils/translations/featuredSection";
+} from "../../../shared/styles/textVariables";
+import MergedCards from "../../../ui/cards/Card/Card.merge";
+import type { CardData, StateProps } from "../../../interfaces/interface";
+import { getTranslation } from "../../../utils/translations";
+import { featuredSectionTranslations } from "../../../utils/translations/featuredSection";
 import FeaturedCard from "./FeaturedCard";
 
 

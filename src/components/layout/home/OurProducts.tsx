@@ -1,7 +1,7 @@
-import PrimaryButton from "../../base/button/ButtonPrimary"
-import type { HomePageProps } from "../../interfaces/interface"
-import ProductCard from "../../ui/cards/ProductCard"
-import { ourProductsTranslation } from "../../utils/translations/homepage/ourProducts"
+import PrimaryButton from "../../../base/button/ButtonPrimary"
+import type { HomePageProps } from "../../../interfaces/interface"
+import ProductCard from "../../../ui/cards/ProductCard"
+import { ourProductsTranslation } from "../../../utils/translations/homepage/ourProducts"
 import Heading from "./Heading"
 
 function OurProducts({products, state}:HomePageProps) {
