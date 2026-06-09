@@ -48,7 +48,7 @@ function ProductCard({ product }: ProductCardProps) {
       <span className="flex gap-2 items-center w-full mt-2">
         Review: {product.rating}
         <span className={`text-black/50 font-semibold ${TITLE_TEXT_STYLES.sm}`}>
-          ({product.reviews.length})
+          ({product.reviews?.length ?? 0})
         </span>
       </span>
     </div>

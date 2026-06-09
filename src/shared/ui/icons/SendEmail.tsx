@@ -12,9 +12,9 @@ function SendEmailSVG({className, color}:PropsSVG) {
       <path
         d="M8.66245 9.74785H2.75045L0.773447 1.88285C0.760787 1.83714 0.753077 1.79021 0.750447 1.74285C0.728447 1.02185 1.52245 0.521851 2.21045 0.851851L20.7504 9.74785L2.21045 18.6439C1.53045 18.9709 0.746447 18.4848 0.750447 17.7768C0.752472 17.7136 0.763585 17.6509 0.783447 17.5909L2.25045 12.7479"
         stroke="#FAFAFA"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

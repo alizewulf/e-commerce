@@ -22,12 +22,11 @@ export function ProductPage({state}:StateProps) {
 
       try {
         const response = await getProducts();
-        const products =
-          Array.isArray(response) &&
-          response.length > 0 &&
-          Array.isArray(response[0]?.products)
-            ? (response[0].products as Product[])
-            : [];
+        const products: Product[] = Array.isArray(response)
+          ? response
+          : Array.isArray(response?.products)
+          ? response.products
+          : [];
         const foundProduct =
           products.find((item) => String(item.id) === id) ?? null;
 

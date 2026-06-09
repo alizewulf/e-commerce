@@ -16,8 +16,8 @@ function FlashSalesSection({ products,state }: HomePageProps) {
       </Heading>
 
       <div className="mt-2 flex justify-around">
-        {products.slice(0, 4).map(product => (
-          <ProductCard key={product.id} product={product} />
+        {products.slice(0, 4).map((product, index) => (
+          <ProductCard key={product.id ?? index} product={product} />
         ))}
       </div>
 

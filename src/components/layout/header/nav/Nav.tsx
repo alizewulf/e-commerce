@@ -22,11 +22,13 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
   const [loupeState, setLoupeState] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState("");
   const products = useProducts();
+  const searchLower = searchValue.toLowerCase();
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-    product.category.toLowerCase().includes(searchValue.toLowerCase()),
-  );
+  const filteredProducts = (products || []).filter((product) => {
+    const title = product.title?.toLowerCase() ?? "";
+    const category = product.category?.toLowerCase() ?? "";
+    return title.includes(searchLower) || category.includes(searchLower);
+  });
 
   function changeLoupe() {
     setLoupeState((prev) => !prev);

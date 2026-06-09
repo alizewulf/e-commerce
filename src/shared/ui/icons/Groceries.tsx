@@ -11,15 +11,15 @@ function GroceriesSVG() {
           d="M-26,10 L-20,-30 L20,-30 L26,10 Q26,40 0,40 Q-26,40 -26,10 Z"
           fill="none"
           stroke="#222"
-          stroke-width="2"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinejoin="round"
         />
         <path
           d="M-12,-30 Q-12,-50 0,-50 Q12,-50 12,-30"
           fill="none"
           stroke="#222"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="-10"
@@ -27,8 +27,8 @@ function GroceriesSVG() {
           x2="-12"
           y2="18"
           stroke="#999"
-          stroke-width="1"
-          stroke-linecap="round"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
         <line
           x1="10"
@@ -36,8 +36,8 @@ function GroceriesSVG() {
           x2="12"
           y2="18"
           stroke="#999"
-          stroke-width="1"
-          stroke-linecap="round"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
       </g>
     </svg>

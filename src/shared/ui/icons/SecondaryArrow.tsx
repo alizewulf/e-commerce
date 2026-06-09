@@ -10,9 +10,9 @@ function SecondaryArrowSVG() {
       <path
         d="M0.75 7.75H17.25M10.25 14.75L17.25 7.75L10.25 0.75"
         stroke="#FAFAFA"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

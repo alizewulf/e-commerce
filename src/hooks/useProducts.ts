@@ -8,7 +8,7 @@ export function useProducts() {
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await getProducts();
-      setProducts(data.products);
+      setProducts(Array.isArray(data) ? data : []);
     };
 
     fetchProducts();

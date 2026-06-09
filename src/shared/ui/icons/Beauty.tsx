@@ -15,7 +15,7 @@ function BeautySVG() {
           rx="3"
           fill="none"
           stroke="#555"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <ellipse
           cx="0"
@@ -24,7 +24,7 @@ function BeautySVG() {
           ry="26"
           fill="none"
           stroke="#222"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <ellipse
           cx="-7"
@@ -33,7 +33,7 @@ function BeautySVG() {
           ry="9"
           fill="none"
           stroke="#999"
-          stroke-width="1"
+          strokeWidth="1"
           opacity="0.5"
         />
         <rect
@@ -44,7 +44,7 @@ function BeautySVG() {
           rx="2"
           fill="none"
           stroke="#222"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <rect
           x="28"
@@ -54,9 +54,9 @@ function BeautySVG() {
           rx="3"
           fill="none"
           stroke="#555"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
-        <line x1="28" y1="-4" x2="38" y2="-4" stroke="#222" stroke-width="1" />
+        <line x1="28" y1="-4" x2="38" y2="-4" stroke="#222" strokeWidth="1" />
       </g>
     </svg>
   );

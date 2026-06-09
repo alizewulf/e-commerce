@@ -10,9 +10,9 @@ function MailSVG() {
       <path
         d="M0.75 0.750061L10.75 7.75006L20.75 0.750061M0.75 14.7501H20.75V0.750061H0.75V14.7501Z"
         stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

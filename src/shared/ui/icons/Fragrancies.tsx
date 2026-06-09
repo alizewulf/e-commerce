@@ -15,7 +15,7 @@ function FragranciesSVG() {
           rx="6"
           fill="none"
           stroke="#222"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <rect
           x="-8"
@@ -25,7 +25,7 @@ function FragranciesSVG() {
           rx="3"
           fill="none"
           stroke="#222"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <rect
           x="-10"
@@ -35,7 +35,7 @@ function FragranciesSVG() {
           rx="4"
           fill="none"
           stroke="#555"
-          stroke-width="1.5"
+          strokeWidth="1.5"
         />
         <rect
           x="-12"
@@ -45,28 +45,28 @@ function FragranciesSVG() {
           rx="2"
           fill="none"
           stroke="#999"
-          stroke-width="1"
+          strokeWidth="1"
         />
         <path
           d="M-6,-22 Q-10,-30 -6,-38"
           fill="none"
           stroke="#999"
-          stroke-width="1"
-          stroke-linecap="round"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
         <path
           d="M0,-22 Q0,-32 0,-40"
           fill="none"
           stroke="#999"
-          stroke-width="1"
-          stroke-linecap="round"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
         <path
           d="M6,-22 Q10,-30 6,-38"
           fill="none"
           stroke="#999"
-          stroke-width="1"
-          stroke-linecap="round"
+          strokeWidth="1"
+          strokeLinecap="round"
         />
       </g>
     </svg>

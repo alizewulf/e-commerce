@@ -13,7 +13,13 @@ import type { StateProps } from "../../interfaces/app/state";
 function HomePage({state}:StateProps) {
   const products = useProducts();
 
-  if (!products.length) return null;
+  if (!products.length) {
+    return (
+      <div className="min-h-[calc(100vh-5rem)] flex items-center justify-center px-6">
+        <p>Loading products...</p>
+      </div>
+    );
+  }
 
   const categories = getTopCategories(products);
 
