@@ -56,7 +56,7 @@ function App() {
           path="*"
           element={<NotFoundPage state={state} setState={setState} />}
         />
-        <Route path="/product/:id" element={<ProductPage/>}/>
+        <Route path="/product/:id" element={<ProductPage state={state}/>}/>
         <Route path="/manage-account" element={<ManageMyAccount/>}/>
       </Routes>
     </main>

@@ -10,7 +10,7 @@ function ProductBreadcrumb({ product }: ProductBreadcrumbProps) {
     <div className="text-sm text-black/50">
       <span className={TITLE_TEXT_STYLES.sm}>Home</span>
       <span className="mx-2">/</span>
-      <span className={TITLE_TEXT_STYLES.sm}>{product.category}</span>
+      <span className={`${TITLE_TEXT_STYLES.sm} capitalize`}>{product.category}</span>
       <span className="mx-2">/</span>
       <span className={`${TITLE_TEXT_STYLES.sm} text-black`}>{product.title}</span>
     </div>

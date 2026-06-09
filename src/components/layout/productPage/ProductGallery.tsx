@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { Product } from "../../../interfaces/interface";
 
 type ProductGalleryProps = {
@@ -8,6 +8,10 @@ type ProductGalleryProps = {
 function ProductGallery({ product }: ProductGalleryProps) {
   const images = [product.thumbnail, ...product.images].filter(Boolean);
   const [selectedImage, setSelectedImage] = useState(images[0]);
+
+  useEffect(() => {
+    setSelectedImage(images[0]);
+  }, [images]);
 
   return (
     <div className="flex flex-col gap-6">

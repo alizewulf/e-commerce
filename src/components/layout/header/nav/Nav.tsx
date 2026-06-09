@@ -3,8 +3,9 @@ import LoupeSVG from "../../../../ui/icons/Loupe";
 import HeartSVG from "../../../../ui/icons/Heart";
 import type { Props } from "../../../../interfaces/interface";
 import { useState } from "react";
+import { useProducts } from "../../../../hooks/userProducts";
 import CartSVG from "../../../../ui/icons/Cart";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Dropdown from "../../../../ui/dropdown/Dropdown";
 import DropdownUserIcon from "../../../../ui/icons/DropdownUserIcon";
 import UserIconSVG from "../../../../ui/icons/UserIcon";
@@ -19,6 +20,13 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
   const t = headerTranslations[state.lang as keyof typeof headerTranslations];
   const tDropdown = dropdownTranslations[state.lang as keyof typeof dropdownTranslations];
   const [loupeState, setLoupeState] = useState<boolean>(false);
+  const [searchValue, setSearchValue] = useState("");
+  const products = useProducts();
+
+  const filteredProducts = products.filter((product) =>
+    product.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+    product.category.toLowerCase().includes(searchValue.toLowerCase()),
+  );
 
   function changeLoupe() {
     setLoupeState((prev) => !prev);
@@ -116,10 +124,25 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
           <input
             type="text"
             placeholder={t.searchInput}
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
             onBlur={() => changeLoupe()}
             onFocus={() => changeLoupe()}
             className="bg-secondary py-2.5 px-5"
           />
+          {searchValue && filteredProducts.length > 0 && (
+            <div className="absolute left-0 right-0 z-10 flex flex-col mt-2 max-h-64 overflow-y-auto rounded bg-white border border-border shadow-lg">
+              {filteredProducts.map((product) => (
+                <Link
+                  key={product.id}
+                  to={`/product/${product.id}`}
+                  className="cursor-pointer px-4 py-2 w-full text-sm text-black hover:bg-secondary/40"
+                >
+                  {product.title}
+                </Link>
+              ))}
+            </div>
+          )}
           {loupeState === false ? (
             <LoupeSVG
               className="absolute right-6.25 top-3.25"
