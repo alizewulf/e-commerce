@@ -19,6 +19,7 @@ interface InputProps {
     value?: string
     onChange?: (value: string) => void
     className?: string
+    name?:string
 }
 
 function InputModule({
@@ -29,6 +30,7 @@ function InputModule({
     required,
     value,
     onChange,
+    name,
     className: extraClassName = ""
 }: InputProps) {
 
@@ -46,6 +48,7 @@ function InputModule({
                 value={value}
                 onChange={handleChange}
                 required={required}
+                name={name}
             />
         )
     }
@@ -58,6 +61,7 @@ function InputModule({
             value={value}
             onChange={handleChange}
             required={required}
+name={name}
         />
     )
 }

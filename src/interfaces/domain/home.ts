@@ -4,6 +4,7 @@ import type { State } from "../app/state";
 export type HomePageProps = {
   products?: Product[];
   state: State;
+  toggleWishlist?: (productId: number) => void;
 };
 
 export type CardData = {

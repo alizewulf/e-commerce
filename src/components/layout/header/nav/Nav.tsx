@@ -44,15 +44,22 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
     }));
   }
   const navigate = useNavigate()
-  function handleNavigate() {
+  const wishlistCount = state.wishlist?.length ?? 0;
+
+  function accountNavigate() {
     navigate('/manage-account')
   }
+
+  function toWishList() {
+    navigate('/wishlist')
+  }
+
   const userDropdownItems = [
     {
       id: "manageAccount",
       label: tDropdown.manageAccount,
       icon: <DropdownUserIcon color="transparent" />,
-      onClick: handleNavigate
+      onClick: accountNavigate
     },
     {
       id: "myOrder",
@@ -154,10 +161,17 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
             ""
           )}
         </div>
-        <div className="flex gap-4">
-          <button className="cursor-pointer">
-            <HeartSVG color="transparent" />
-          </button>
+        <div className="flex gap-4 items-center">
+          <div className="relative">
+            <button className="cursor-pointer" onClick={() => toWishList()}>
+              <HeartSVG color="transparent" />
+            </button>
+            {wishlistCount > 0 && (
+              <span onClick={() => toWishList} className="absolute cursor-pointer -top-2 -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary-2 px-1 text-[0.625rem] font-semibold text-white">
+                {wishlistCount}
+              </span>
+            )}
+          </div>
           <button className="cursor-pointer">
             <CartSVG />
           </button>

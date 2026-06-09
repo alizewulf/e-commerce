@@ -6,8 +6,8 @@ import { FlashSales } from "../../utils/translations/homepage/flashSales";
 import Heading from "./Heading";
 
 
-function FlashSalesSection({ products,state }: HomePageProps) {
-    if (!products || !state) return
+function FlashSalesSection({ products, state, toggleWishlist }: HomePageProps) {
+    if (!products || !state) return null;
     const t = FlashSales[state.lang as keyof typeof FlashSales];
   return (
     <section className="flex flex-col gap-6">
@@ -17,7 +17,12 @@ function FlashSalesSection({ products,state }: HomePageProps) {
 
       <div className="mt-2 flex justify-around">
         {products.slice(0, 4).map((product, index) => (
-          <ProductCard key={product.id ?? index} product={product} />
+          <ProductCard
+            key={product.id ?? index}
+            product={product}
+            isFavorite={state.wishlist.includes(product.id)}
+            onToggleFavorite={() => toggleWishlist?.(product.id)}
+          />
         ))}
       </div>
 

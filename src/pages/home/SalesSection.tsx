@@ -4,7 +4,7 @@ import ProductCard from "../../shared/ui/cards/ProductCard";
 import { bestSellersTranslation } from "../../utils/translations/homepage/bestSellers";
 import Heading from "./Heading";
 
-function BestSellingSection({ products, state }: HomePageProps) {
+function BestSellingSection({ products, state, toggleWishlist }: HomePageProps) {
   if (!products) return null
   const popularProducts = [...products]
     .sort((a, b) => b.reviews.length - a.reviews.length)
@@ -22,7 +22,12 @@ function BestSellingSection({ products, state }: HomePageProps) {
 
       <div className="flex justify-between">
         {popularProducts.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard
+            key={product.id}
+            product={product}
+            isFavorite={state.wishlist.includes(product.id)}
+            onToggleFavorite={() => toggleWishlist?.(product.id)}
+          />
         ))}
       </div>
     </section>

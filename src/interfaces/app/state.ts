@@ -4,8 +4,7 @@ import type { User } from "../domain/user";
 export type State = {
   lang: string;
   isAuth: boolean;
-  user: User | null;
-};
+  user: User | null;  wishlist: number[];};
 
 export interface StateProps {
   state: State;

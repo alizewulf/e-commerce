@@ -10,7 +10,7 @@ import OurProducts from "./OurProducts";
 import FeaturedSection from "./FeaturedSection";
 import type { StateProps } from "../../interfaces/app/state";
 
-function HomePage({state}:StateProps) {
+function HomePage({state, toggleWishlist}:StateProps & { toggleWishlist?: (productId:number) => void }) {
   const products = useProducts();
 
   if (!products.length) {
@@ -30,15 +30,15 @@ function HomePage({state}:StateProps) {
         <HeroBanner state={state} products={products}/>
       </section>
 
-      <FlashSalesSection state={state} products={products} />
+      <FlashSalesSection state={state} products={products} toggleWishlist={toggleWishlist} />
 
       <CategoriesSection state={state} products={products} />
 
-      <BestSellingSection state={state} products={products} />
+      <BestSellingSection state={state} products={products} toggleWishlist={toggleWishlist} />
 
       <JBLCard state={state}/>
 
-      <OurProducts state={state} products={products}/>
+      <OurProducts state={state} products={products} toggleWishlist={toggleWishlist} />
 
       <FeaturedSection state={state}/>
     </div>

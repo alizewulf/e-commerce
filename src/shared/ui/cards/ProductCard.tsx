@@ -6,11 +6,22 @@ import HeartSVG from "../icons/Heart";
 import EyeSVG from "../icons/Eye";
 type ProductCardProps = {
   product: Product;
+  isFavorite?: boolean;
+  onToggleFavorite?: () => void;
 };
 
-function ProductCard({ product }: ProductCardProps) {
-  const [favorite, setFavorite] = useState(false);
+function ProductCard({ product, isFavorite, onToggleFavorite }: ProductCardProps) {
+  const [localFavorite, setLocalFavorite] = useState(false);
   const navigate = useNavigate();
+  const favoriteState = typeof isFavorite === "boolean" ? isFavorite : localFavorite;
+
+  const handleFavoriteClick = () => {
+    if (onToggleFavorite) {
+      onToggleFavorite();
+      return;
+    }
+    setLocalFavorite((prev) => !prev);
+  };
 
   return (
     <div className="flex flex-col bg-secondary relative group">
@@ -25,9 +36,9 @@ function ProductCard({ product }: ProductCardProps) {
         <button
           type="button"
           className="p-2.5 rounded-full"
-          onClick={() => setFavorite((prev) => !prev)}
+          onClick={handleFavoriteClick}
         >
-          <HeartSVG stroke={favorite ? "red" : " black"} color={favorite ? "red" : "transparent"}/>
+          <HeartSVG stroke={favoriteState ? "red" : "black"} color={favoriteState ? "red" : "transparent"} />
         </button>
         <button
           type="button"

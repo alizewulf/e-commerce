@@ -6,11 +6,11 @@ import HeartSVG from "../../shared/ui/icons/Heart";
 import { productPageTranslations } from "../../utils/translations/productPage/productPage";
 type ProductProps = {
   product: Product;
-  state: State
+  state: State;
+  toggleWishlist?: (productId: number) => void;
 };
 
-
-function ProductDetails({ product, state }: ProductProps) {
+function ProductDetails({ product, state, toggleWishlist }: ProductProps) {
   const t = productPageTranslations[state.lang as keyof typeof productPageTranslations];
   
   const inStock = product.stock > 1;
@@ -52,8 +52,12 @@ function ProductDetails({ product, state }: ProductProps) {
             <button
               type="button"
               className="flex h-12 w-12 items-center justify-center rounded-3xl border border-black/10 bg-white"
+              onClick={() => toggleWishlist?.(product.id)}
             >
-              <HeartSVG color="transparent" />
+              <HeartSVG
+                stroke={state.wishlist.includes(product.id) ? "red" : "black"}
+                color={state.wishlist.includes(product.id) ? "red" : "transparent"}
+              />
             </button>
           </div>
 

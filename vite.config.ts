@@ -6,4 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   base: "/e-commerce/",
   plugins: [tailwindcss(), react()],
+  server: {
+    proxy: {
+      "api": "https://6a1f31efb79eec0d6cf09493.mockapi.io/exclusive/users"
+    }
+  }
 });

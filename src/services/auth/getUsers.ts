@@ -21,7 +21,7 @@ export const USERS = {
 
   update: async (id: string, user: Partial<User>) => {
     const response = await fetch(`${API_USERS_URL}/${id}`, {
-      method: "PATCH",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
