@@ -1,9 +1,9 @@
 import { useState } from "react"
-import Dropdown from "../../../ui/dropdown/Dropdown"
+import Dropdown from "../../../shared/ui/dropdown/Dropdown"
 import type { StateProps } from "../../../interfaces/interface"
 import { headerTranslations } from "../../../utils/translations/header";
 import { languages } from "../../../utils/languages";
-import ArrowSVG from "../../../ui/icons/Arrow";
+import ArrowSVG from "../../../shared/ui/icons/Arrow";
 import Nav from "./nav/Nav";
 import type { DropdownType } from "../../../interfaces/interface";
 import { TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";

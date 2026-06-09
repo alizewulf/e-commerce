@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import PrimaryButton from "../base/button/ButtonPrimary";
 import AuthLayout from "../components/layout/auth/Auth";
 import { AUTH_API } from "../services/auth/AuthAPI";
-import type { StateProps } from "../interfaces/interface";
+import type { StateProps } from "../interfaces/app/state";
 import { registerTranslation } from "../utils/translations/registerPage";
 import InputModule from "../base/input/Inputs";
 function SignUpPage({ state }: StateProps) {

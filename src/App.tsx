@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Header from "./components/layout/header";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import HomePage from "./pages/Home";
+import HomePage from "./pages/home";
 import ContactPage from "./pages/Contact";
 import AboutPage from "./pages/About";
 import SignUpPage from "./pages/SignUp";
@@ -9,8 +9,8 @@ import type { State } from "./interfaces/interface";
 import Footer from "./components/layout/footer";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/Login";
-import ProductPage from "./components/layout/productPage";
-import ManageMyAccount from "./pages/ManageMyAccount";
+import ProductPage from "./pages/productPage";
+import ManageMyAccount from "./pages/manageAccount";
 
 function App() {
   const [state, setState] = useState<State>(() => {
@@ -57,7 +57,7 @@ function App() {
           element={<NotFoundPage state={state} setState={setState} />}
         />
         <Route path="/product/:id" element={<ProductPage state={state}/>}/>
-        <Route path="/manage-account" element={<ManageMyAccount/>}/>
+        <Route path="/manage-account" element={<ManageMyAccount state={state}/>}/>
       </Routes>
     </main>
 

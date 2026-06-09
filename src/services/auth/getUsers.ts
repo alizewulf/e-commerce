@@ -1,5 +1,5 @@
 import { API_USERS_URL } from "../API_CONFIG";
-import type { User } from "../../interfaces/interface";
+import type { User } from "../../interfaces/domain/user";
 
 export const USERS = {
   getAll: async () => {

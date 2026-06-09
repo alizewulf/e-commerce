@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import PrimaryButton from "../base/button/ButtonPrimary"
 import InputModule from "../base/input/Inputs"
-import type { StateProps } from "../interfaces/interface"
+import type { StateProps } from "../interfaces/app/state"
 import { TITLE_TEXT_STYLES } from "../shared/styles/textVariables"
-import ContactCard from "../ui/cards/ContactCard"
-import MailSVG from "../ui/icons/Mail"
-import PhoneSVG from "../ui/icons/Phone"
+import ContactCard from "../shared/ui/cards/ContactCard"
+import MailSVG from "../shared/ui/icons/Mail"
+import PhoneSVG from "../shared/ui/icons/Phone"
 import { contactPageTranslation } from "../utils/translations/contactPage"
 
 function ContactPage({state}:StateProps) {

@@ -1,4 +1,4 @@
-import type { Product } from "../../interfaces/interface";
+import type { Product } from "../../interfaces/domain/product";
 export function getTopCategories(products: Product[], limit = 8) {
   const grouped = products.reduce((acc, p) => {
     acc[p.category] = (acc[p.category] || 0) + 1;

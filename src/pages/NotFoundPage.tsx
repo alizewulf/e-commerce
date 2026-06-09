@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import type { StateProps } from "../interfaces/interface";
+import type { StateProps } from "../interfaces/app/state";
 import PrimaryButton from "../base/button/ButtonPrimary";
 import { pageNotFoundTranslations } from "../utils/translations/pageNotFound";
 import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../shared/styles/textVariables";

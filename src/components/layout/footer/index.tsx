@@ -1,7 +1,7 @@
 import { translationsFooter } from "../../../utils/translations/footer";
 import type { StateProps } from "../../../interfaces/interface";
 
-import SendEmailSVG from "../../../ui/icons/SendEmail";
+import SendEmailSVG from "../../../shared/ui/icons/SendEmail";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -9,9 +9,9 @@ import QRIMG from "/Qrcode1.png";
 import AppStoreImg from "/download-appstore.png";
 import PlayStoreIMG from "/png-transparent-google-play-store-logo-google-play-app-store-android-wallets-text-label-logo.png";
 import FacebookSVG from "../../../assets/Icon-Facebook.svg";
-import LinkedInSVG from "../../../ui/icons/LinkedIn";
-import TwitterSVG from "../../../ui/icons/Twitter";
-import InstagramSVG from "../../../ui/icons/Instagram";
+import LinkedInSVG from "../../../shared/ui/icons/LinkedIn";
+import TwitterSVG from "../../../shared/ui/icons/Twitter";
+import InstagramSVG from "../../../shared/ui/icons/Instagram";
 import { TITLE_TEXT_STYLES } from "../../../shared/styles/textVariables";
 
 type FooterLinkItem = {

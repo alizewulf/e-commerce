@@ -1,17 +1,17 @@
-import Card from "../ui/cards/Card";
-import MoneyBagSVG from "../ui/icons/MoneyBag";
-import SaleSVG from "../ui/icons/SaleIcon";
-import ShoppingSVG from "../ui/icons/ShoppingIcon";
-import StoreSVG from "../ui/icons/StoreIcon";
+import Card from "../shared/ui/cards/Card";
+import MoneyBagSVG from "../shared/ui/icons/MoneyBag";
+import SaleSVG from "../shared/ui/icons/SaleIcon";
+import ShoppingSVG from "../shared/ui/icons/ShoppingIcon";
+import StoreSVG from "../shared/ui/icons/StoreIcon";
 import HeroIMG from "/portrait-two-african-females-holding-shopping-bags-while-reacting-something-their-smartphone 1.png";
 import Staff1 from "/Frame 874.png";
 import Staff2 from "/Frame 875.png";
 import Staff3 from "/Frame 876.png";
-import StaffCard from "../ui/cards/StaffMembers";
+import StaffCard from "../shared/ui/cards/StaffMembers";
 import { aboutPageTranslation } from "../utils/translations/aboutPage";
-import type { StateProps } from "../interfaces/interface";
+import type { StateProps } from "../interfaces/app/state";
 import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES} from "../shared/styles/textVariables";
-import MergedCards from "../ui/cards/Card/Card.merge";
+import MergedCards from "../shared/ui/cards/Card/Card.merge";
 
 
 function AboutPage({ state }: StateProps) {

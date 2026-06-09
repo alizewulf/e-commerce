@@ -1,7 +1,7 @@
-import BeautySVG from "../ui/icons/Beauty";
-import FragranciesSVG from "../ui/icons/Fragrancies";
-import FurnitureSVG from "../ui/icons/Furnitre";
-import GroceriesSVG from "../ui/icons/Groceries";
+import BeautySVG from "../shared/ui/icons/Beauty";
+import FragranciesSVG from "../shared/ui/icons/Fragrancies";
+import FurnitureSVG from "../shared/ui/icons/Furnitre";
+import GroceriesSVG from "../shared/ui/icons/Groceries";
 
 
 export const categoryIcons = {

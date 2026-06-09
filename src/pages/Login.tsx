@@ -1,6 +1,6 @@
 import AuthLayout from "../components/layout/auth/Auth";
 import PrimaryButton from "../base/button/ButtonPrimary";
-import type { StateProps } from "../interfaces/interface";
+import type { StateProps } from "../interfaces/app/state";
 import { useState } from "react";
 import { AUTH_API } from "../services/auth/AuthAPI";
 import { useNavigate } from "react-router-dom";
