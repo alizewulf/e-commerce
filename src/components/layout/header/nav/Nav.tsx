@@ -45,6 +45,7 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
   }
   const navigate = useNavigate()
   const wishlistCount = state.wishlist?.length ?? 0;
+  const cartCount = state.cart?.reduce((sum, item) => sum + item.quantity, 0) ?? 0;
 
   function accountNavigate() {
     navigate('/manage-account')
@@ -54,6 +55,9 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
     navigate('/wishlist')
   }
 
+  function toCart() {
+    navigate('/cart')
+  }
   const userDropdownItems = [
     {
       id: "manageAccount",
@@ -163,18 +167,25 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
         </div>
         <div className="flex gap-4 items-center">
           <div className="relative">
-            <button className="cursor-pointer" onClick={() => toWishList()}>
+            <button className="cursor-pointer flex items-center justify-center" onClick={() => toWishList()}>
               <HeartSVG color="transparent" />
             </button>
             {wishlistCount > 0 && (
-              <span onClick={() => toWishList} className="absolute cursor-pointer -top-2 -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary-2 px-1 text-[0.625rem] font-semibold text-white">
+              <span onClick={() => toWishList()} className="absolute cursor-pointer -top-2 select-none -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary-2 px-1 text-[0.625rem] font-semibold text-white">
                 {wishlistCount}
               </span>
             )}
           </div>
-          <button className="cursor-pointer">
-            <CartSVG />
-          </button>
+          <div className="relative">
+            <button className="cursor-pointer flex items-center justify-center" onClick={() => toCart()}>
+              <CartSVG />
+            </button>
+            {cartCount > 0 && (
+              <span onClick={() => toCart()} className="absolute cursor-pointer -top-2 select-none -right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-secondary-2 px-1 text-[0.625rem] font-semibold text-white">
+                {cartCount}
+              </span>
+            )}
+          </div>
           {state.isAuth && (
             <Dropdown
               dropdown={dropdown}

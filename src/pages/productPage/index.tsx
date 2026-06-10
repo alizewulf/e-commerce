@@ -7,7 +7,7 @@ import ProductBreadcrumb from "./ProductBreadcrumb";
 import ProductGallery from "./ProductGallery";
 import ProductDetails from "./ProductDetails";
 
-export function ProductPage({state, toggleWishlist}:StateProps & { toggleWishlist?: (productId: number) => void }) {
+export function ProductPage({state, toggleWishlist, addToCart}:StateProps & { toggleWishlist?: (productId: number) => void; addToCart?: (productId: number, quantity?: number) => void }) {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,7 +49,7 @@ export function ProductPage({state, toggleWishlist}:StateProps & { toggleWishlis
       <ProductBreadcrumb product={product} />
       <div className="mt-12 grid gap-10 xl:grid-cols-[1.5fr_1fr]">
         <ProductGallery product={product} />
-        <ProductDetails state={state} product={product} toggleWishlist={toggleWishlist} />
+        <ProductDetails state={state} product={product} toggleWishlist={toggleWishlist} addToCart={addToCart} />
       </div>
     </section>
   );

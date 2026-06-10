@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { HEADING_TEXT_STYLES, TITLE_TEXT_STYLES } from "../../shared/styles/textVariables";
 import type { Product } from "../../interfaces/domain/product";
 import type { State } from "../../interfaces/app/state";
@@ -8,14 +9,23 @@ type ProductProps = {
   product: Product;
   state: State;
   toggleWishlist?: (productId: number) => void;
+  addToCart?: (productId: number, quantity?: number) => void;
 };
 
-function ProductDetails({ product, state, toggleWishlist }: ProductProps) {
+function ProductDetails({ product, state, toggleWishlist, addToCart }: ProductProps) {
   const t = productPageTranslations[state.lang as keyof typeof productPageTranslations];
   
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
   const inStock = product.stock > 1;
   const availabilityClass = inStock ? "text-button-1" : "text-secondary-2";
   const quantityId = `quantity-${product.id}`;
+
+  useEffect(() => {
+    if (!showAddedMessage) return;
+
+    const timeout = window.setTimeout(() => setShowAddedMessage(false), 2000);
+    return () => window.clearTimeout(timeout);
+  }, [showAddedMessage]);
 
   return (
     <div className="flex flex-col gap-8">
@@ -48,7 +58,18 @@ function ProductDetails({ product, state, toggleWishlist }: ProductProps) {
               defaultValue={1}
               className="w-28 rounded-3xl border border-black/10 bg-secondary px-4 py-3 text-base"
             />
-            <PrimaryButton className="h-12 px-8 flex items-center">{t.buyNow}</PrimaryButton>
+            <PrimaryButton
+              className="h-12 px-8 flex items-center"
+              onClick={(event) => {
+                event.preventDefault();
+                const input = document.getElementById(quantityId) as HTMLInputElement | null;
+                const quantity = input ? Math.max(1, Number(input.value) || 1) : 1;
+                addToCart?.(product.id, quantity);
+                setShowAddedMessage(true);
+              }}
+            >
+              {t.buyNow}
+            </PrimaryButton>
             <button
               type="button"
               className="flex h-12 w-12 items-center justify-center rounded-3xl border border-black/10 bg-white"
@@ -59,6 +80,9 @@ function ProductDetails({ product, state, toggleWishlist }: ProductProps) {
                 color={state.wishlist.includes(product.id) ? "red" : "transparent"}
               />
             </button>
+            {showAddedMessage && (
+              <p className="text-sm text-button-1">{t.addedToCart}</p>
+            )}
           </div>
 
           <div className="rounded-3xl border border-black/10 bg-secondary p-5 text-sm text-black/70">

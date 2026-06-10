@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, } from "react";
 import { useNavigate } from "react-router-dom";
 import { TITLE_TEXT_STYLES } from "../../styles/textVariables";
 import type { Product } from "../../../interfaces/interface";
@@ -29,9 +29,8 @@ function ProductCard({ product, isFavorite, onToggleFavorite }: ProductCardProps
         src={product.thumbnail}
         alt="Thumbnail"
         className="mx-auto"
-      />
+        />
       <p className={`${TITLE_TEXT_STYLES.md} w-full mt-4`}>{product.title}</p>
-
       <div className="absolute top-1/5 right-0 flex-col gap-2 hidden group-hover:flex">
         <button
           type="button"

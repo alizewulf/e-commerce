@@ -54,12 +54,12 @@ function Footer({ state }: StateProps) {
     },
     {
       title: t.quickLinks.title,
-      type: "text",
+      type: "links",
       items: [
-        t.quickLinks.privacyPolicy,
-        t.quickLinks.termsOfUse,
-        t.quickLinks.faq,
-        t.quickLinks.contact,
+        { label: t.quickLinks.privacyPolicy, to: "/about"},
+        { label: t.quickLinks.termsOfUse, to: "/about"},
+        { label: t.quickLinks.faq, to: "/about"},
+        { label: t.quickLinks.contact, to: "/contact"},
       ],
     },
   ];

@@ -1,10 +1,18 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { User } from "../domain/user";
 
+export type CartItem = {
+  id: number;
+  quantity: number;
+};
+
 export type State = {
   lang: string;
   isAuth: boolean;
-  user: User | null;  wishlist: number[];};
+  user: User | null;
+  wishlist: number[];
+  cart: CartItem[];
+};
 
 export interface StateProps {
   state: State;
