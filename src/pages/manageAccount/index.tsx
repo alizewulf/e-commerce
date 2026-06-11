@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import PrimaryButton from "../../base/button/ButtonPrimary";
 import UserAccountInput from "./UserAccountInput";
 import UserPanel from "./UserPanel";
@@ -45,7 +45,7 @@ function ManageMyAccount({ state }: StateProps) {
     setMessage(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     setMessage(null);

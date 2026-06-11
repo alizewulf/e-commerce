@@ -14,7 +14,10 @@ function CategoryList({ categories }: Props) {
           key={category}
           className={`${TITLE_TEXT_STYLES.md} capitalize relative group`}
         >
-          <Link to={`/${category}`} className="flex items-center gap-2 w-full">
+          <Link
+            to={`/category/${encodeURIComponent(category.toLowerCase())}`}
+            className="flex items-center gap-2 w-full"
+          >
             <span>{category}</span>
 
             {index < 2 && (

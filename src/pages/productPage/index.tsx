@@ -49,7 +49,13 @@ export function ProductPage({state, toggleWishlist, addToCart}:StateProps & { to
       <ProductBreadcrumb product={product} />
       <div className="mt-12 grid gap-10 xl:grid-cols-[1.5fr_1fr]">
         <ProductGallery product={product} />
-        <ProductDetails state={state} product={product} toggleWishlist={toggleWishlist} addToCart={addToCart} />
+        <ProductDetails
+          state={state}
+          product={product}
+          toggleWishlist={toggleWishlist}
+          addToCart={addToCart}
+          onProductUpdate={setProduct}
+        />
       </div>
     </section>
   );

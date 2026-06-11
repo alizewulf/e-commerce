@@ -10,7 +10,9 @@ import Footer from "./components/layout/footer";
 import NotFoundPage from "./pages/NotFoundPage";
 import LoginPage from "./pages/Login";
 import ProductPage from "./pages/productPage";
+import CategoryPage from "./pages/CategoryPage";
 import ManageMyAccount from "./pages/manageAccount";
+import AdminPanel from "./pages/admin";
 import WishList from "./pages/WishList";
 import CartPage from "./pages/cart/Cart";
 
@@ -133,12 +135,30 @@ function App() {
             }
           />
           <Route
+            path="/category/:category"
+            element={
+              <CategoryPage state={state} toggleWishlist={toggleWishlist} />
+            }
+          />
+          <Route
             path="/manage-account"
             element={
               !state.isAuth ? (
                 <Navigate to="/signup" />
               ) : (
                 <ManageMyAccount state={state} />
+              )
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              !state.isAuth ? (
+                <Navigate to="/signup" />
+              ) : state.user?.isAdmin ? (
+                <AdminPanel state={state} />
+              ) : (
+                <Navigate to="/" />
               )
             }
           />

@@ -92,7 +92,8 @@ function Nav({ state, dropdown, setDropdown, setState }: Props) {
     { key: "homePage", path: "/" },
     { key: "contactPage", path: "/contact" },
     { key: "about", path: "/about" },
-    { key: "signup", path: "/signup" },
+    ...(state.user?.isAdmin ? [{ key: "admin", path: "/admin" }] : []),
+    ...(!state.isAuth ? [{ key: "signup", path: "/signup" }] : []),
   ];
 
   return (
